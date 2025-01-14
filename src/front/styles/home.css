@@ -1,7 +1,40 @@
-/*
-    home.css: This website contains selectors only used in home.css
+.backGroundHome{
+    
+        background-image: url('https://i0.wp.com/afrofeminas.com/wp-content/uploads/2023/11/Most_visited_countries_in_Africa.jpg?ssl=1');
+        background-size: cover;
+        background-position: center;
+        height: 1000px;
+        width: 100%;  
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        color: white;
+        font-size: 3rem; 
+        font-weight: bolder; 
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        
+    
+}
 
-    All pages share the styles on index.css but you should create 
-    one more css for each page that will contain the selected used 
-    on that page only (the ones not reused in other pages).
-*/
+.continents{
+    display:flex;
+    flex-direction:row;
+    font-weight: bolder;
+    text-decoration:none;
+    gap:60px;
+    margin-left:0px;
+    margin-right:670px;
+    margin-bottom:750px;
+    
+}
+.continents span {
+    transition: all 0.3s ease; /* Añade una animación suave */
+    cursor: pointer; /* Cambia el cursor a puntero para indicar que es interactivo */
+}
+
+.continents span:hover {
+    color: #FFD700;
+    transform: scale(1.2); 
+    font-size:3.5rem;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); 
+}

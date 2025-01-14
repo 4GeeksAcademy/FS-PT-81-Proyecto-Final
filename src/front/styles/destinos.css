@@ -15,43 +15,43 @@
 
 .row {
     display: flex;
-    gap: 50px; /* Ajusta el espacio entre las columnas */
-    justify-content: center; /* Centra el contenido horizontalmente */
-    margin-bottom: -350px; /* Ajusta el espaciado inferior si es necesario */
+    gap: 50px; 
+    justify-content: center; 
+    margin-bottom: -350px; 
    
 }
 
 .col {
-    position: relative; /* Necesario para posicionar elementos dentro del contenedor */
-    text-align: center; /* Centra el texto horizontalmente */
+    position: relative; 
+    text-align: center; 
 }
 
 .cities_img {
-    width: 300px; /* Ajusta el tamaño de las imágenes */
-    height: 200px; /* Mantén la proporción de la imagen */
+    width: 300px; 
+    height: 200px; 
     bottom:auto;
     border:3px solid white;
     border-radius: 10px; 
-    z-index: 1; /* Asegura que la imagen esté detrás del texto */
+    z-index: 1; 
 }
 
 .city-name {
-    position: absolute; /* Permite superponer el texto sobre la imagen */
-    top:-10%; /* Centra verticalmente */
-    left: 50%; /* Centra horizontalmente */
-    transform: translate(-50%, -50%); /* Ajusta el centro exacto */
-    color: white; /* El color del texto */
-    font-size: 3rem; /* Ajusta el tamaño del texto */
-    font-weight: bold; /* Asegura que sea visible */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Añade un efecto de sombra */
-    z-index: 2; /* Coloca el texto por encima de la imagen */
+    position: absolute; 
+    top:-10%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    color: white; 
+    font-size: 3rem; 
+    font-weight: bold; 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
+    z-index: 2; 
 }
 
 
 .españa-title {
     position: absolute;
-    top: 15%; /* Ajusta la distancia desde la parte superior */
-    left: 50%; /* Centra horizontalmente */
+    top: 15%; 
+    left: 50%; 
     transform: translateX(-50%);
     color: #f8f4f4;
     font-size: 4rem;
@@ -135,9 +135,9 @@
 
 .il_word:hover p{
     color:rgb(247, 242, 242);
-    font-size: 5rem; /* Cambia el tamaño de la fuente al pasar el ratón */
-    transform: scale(1.2); /* Alternativa: escala el texto en un 20% */
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); /* Opcional: añade sombra */
+    font-size: 5rem; 
+    transform: scale(1.2); 
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); 
 }
 
 .a_word p{
@@ -146,9 +146,9 @@
 
 .a_word:hover p{
     color:rgb(73, 27, 179);
-    font-size: 5rem; /* Cambia el tamaño de la fuente al pasar el ratón */
-    transform: scale(1.2); /* Alternativa: escala el texto en un 20% */
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); /* Opcional: añade sombra */
+    font-size: 5rem; 
+    transform: scale(1.2); 
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); 
 }
 
 .nd_word p{
@@ -157,9 +157,9 @@
 
 .nd_word:hover p{
     color:rgb(243, 237, 237);
-    font-size: 5rem; /* Cambia el tamaño de la fuente al pasar el ratón */
-    transform: scale(1.2); /* Alternativa: escala el texto en un 20% */
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); /* Opcional: añade sombra */
+    font-size: 5rem; 
+    transform: scale(1.2); 
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); 
 }
 
 .ia_word p{
@@ -168,9 +168,9 @@
 
 .ia_word:hover p{
     color:rgb(218, 23, 23);
-    font-size: 5rem; /* Cambia el tamaño de la fuente al pasar el ratón */
-    transform: scale(1.2); /* Alternativa: escala el texto en un 20% */
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); /* Opcional: añade sombra */
+    font-size: 5rem; 
+    transform: scale(1.2); 
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); 
 }
 
 

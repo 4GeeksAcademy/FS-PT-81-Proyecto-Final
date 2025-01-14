@@ -105,10 +105,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   dropdowns.forEach(dropdown => {
       dropdown.addEventListener('click', (e) => {
-          e.stopPropagation(); // Evita que el menú principal se cierre
+          e.stopPropagation(); 
           const submenu = dropdown.querySelector('.dropdown-menu');
           if (submenu) {
-              submenu.classList.toggle('show'); // Alterna la clase "show" para mostrar/ocultar el submenú
+              submenu.classList.toggle('show'); 
           } 
       });
   });

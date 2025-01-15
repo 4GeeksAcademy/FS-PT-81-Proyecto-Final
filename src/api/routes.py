@@ -16,20 +16,20 @@ CORS(api)
 
 # Metodo POST #
 
-@app.route('/favourites/POI/<int:poi_id>', methods=['POST'])
+@api.route('/favourites/POI/<int:poi_id>', methods=['POST'])
 def handle_fav_poi(poi_id):
     user_id = 1
 
-    existing_favourites = Favourites_Poi.query.filter_by(user_id = user_id, poi_id = poi_id).first()
+    existing_favourites = Favourites.query.filter_by(user_id = user_id, poi_id = poi_id).first()
     if existing_favourites:
-        return jsonify({'error': 'planet already in favourites'}), 400
+        return jsonify({'error': 'poi already in favourites'}), 400
     
 
-    new_favourite_poi = Favourites_Poi(user_id = user_id, poi_id_id = poi_id)
+    new_favourite_poi = Favourites(user_id = user_id, poi_id = poi_id)
     db.session.add(new_favourite_poi)
     db.session.commit()
 
-    return jsonify({"msg": "Planet added to favourites"})
+    return jsonify({"msg": "Poi added to favourites"})
 
 
 

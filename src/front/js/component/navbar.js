@@ -66,7 +66,7 @@ export const Navbar = () => {
                                             href="#"
                                             id="destinosDropdown"
                                             role="button">
-                                            ¡Destinos!
+                                            Destinos
                                         </a>
                                         <ul className="dropdown-menu" aria-labelledby="destinosDropdown">
                                               <Link to="/europa" style={{textDecoration:"none"}}>                                            

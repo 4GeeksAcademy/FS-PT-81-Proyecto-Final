@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 
@@ -7,20 +8,33 @@ export const Home = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="text-center mt-5">
-			<h1>Hello Rigo!!</h1>
-			<p>
-				<img src={rigoImageUrl} />
-			</p>
-			<div className="alert alert-info">
-				{store.message || "Loading message from the backend (make sure your python backend is running)..."}
-			</div>
-			<p>
-				This boilerplate comes with lots of documentation:{" "}
-				<a href="https://start.4geeksacademy.com/starters/react-flask">
-					Read documentation
-				</a>
-			</p>
+		
+		<div className="backGroundHome d-flex">
+		<div className="continents">
+			<div>
+			<Link to="/europa" style={{textDecoration:"none", color:"white"}}>
+				<span>
+				EUROPA
+				</span>
+				</Link>
+				</div>
+			<div>
+			<Link to="/asia" style={{textDecoration:"none", color:"white"}}>
+				<span>
+				ASIA
+				</span>
+				</Link>
+				</div>
+			<div>
+			<Link to="/africa" style={{textDecoration:"none", color:"white"}}>
+				<span>
+					
+					ÁFRICA
+					</span>
+					</Link>
+		</div>
+		</div>
+
 		</div>
 	);
 };

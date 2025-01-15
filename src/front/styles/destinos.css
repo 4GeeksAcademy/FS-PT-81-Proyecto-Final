@@ -1,0 +1,225 @@
+.backGroundSpain {       
+    background-image: url('https://w0.peakpx.com/wallpaper/232/574/HD-wallpaper-parque-de-maria-luisa-seville-england-europe-europe.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    height: 100vh; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    color: #f8f4f4; 
+    font-size: 5rem; 
+    font-weight: bold; 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.row {
+    display: flex;
+    gap: 50px; 
+    justify-content: center; 
+    margin-bottom: -350px; 
+   
+}
+
+.col {
+    position: relative; 
+    text-align: center; 
+}
+
+.cities_img {
+    width: 300px; 
+    height: 200px; 
+    bottom:auto;
+    border:3px solid white;
+    border-radius: 10px; 
+    z-index: 1; 
+}
+
+.city-name {
+    position: absolute; 
+    top:-10%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    color: white; 
+    font-size: 3rem; 
+    font-weight: bold; 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
+    z-index: 2; 
+}
+
+
+.españa-title {
+    position: absolute;
+    top: 15%; 
+    left: 50%; 
+    transform: translateX(-50%);
+    color: #f8f4f4;
+    font-size: 4rem;
+    font-weight: bold; 
+    text-shadow: 2px 2px 5px rgba(192, 231, 15, 0.7); 
+    z-index: 10; 
+}
+
+.es_word p{
+    transition: 0.3s;
+}
+
+.es_word:hover p{
+    color:red;
+    font-size: 5rem; 
+    transform: scale(1.2); 
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    
+}
+
+.pa_word p{
+    transition: 0.3s;
+}
+
+.pa_word:hover p{
+    color: yellow;
+    font-size: 5rem; 
+    transform: scale(1.2); 
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+
+}
+
+.ña_word p{
+    transition: 0.3s;
+
+}
+
+.ña_word:hover p{
+    color:red;
+    font-size: 5rem; 
+    transform: scale(1.2); 
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* ASIA */
+.backGroundAsia {       
+    background-image: url('https://s7g10.scene7.com/is/image/barcelo/tailandia-sostenible-1?&&fmt=webp-alpha&qlt=75&wid=2000&fit=crop,1');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    height: 100vh; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    color: #f8f4f4; 
+    font-size: 4rem; 
+    font-weight: bold; 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.tailandia-title{
+    position:absolute;
+    top:15%;
+}
+
+
+.ta_word p{
+    transition: 0.3s;
+}
+
+.ta_word:hover p{
+    color:rgb(218, 23, 23);
+    font-size: 5rem; 
+    transform: scale(1.2); 
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); 
+}
+
+.il_word p{
+    transition: 0.3s;
+}
+
+.il_word:hover p{
+    color:rgb(247, 242, 242);
+    font-size: 5rem; 
+    transform: scale(1.2); 
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); 
+}
+
+.a_word p{
+    transition: 0.3s;
+}
+
+.a_word:hover p{
+    color:rgb(73, 27, 179);
+    font-size: 5rem; 
+    transform: scale(1.2); 
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); 
+}
+
+.nd_word p{
+    transition: 0.3s;
+}
+
+.nd_word:hover p{
+    color:rgb(243, 237, 237);
+    font-size: 5rem; 
+    transform: scale(1.2); 
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); 
+}
+
+.ia_word p{
+    transition: 0.3s;
+}
+
+.ia_word:hover p{
+    color:rgb(218, 23, 23);
+    font-size: 5rem; 
+    transform: scale(1.2); 
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); 
+}
+
+
+
+/* AFRICA */
+.backGroundAfrica {       
+    background-image: url('https://images.memphistours.com/large/f5a1757348c8278b62b6bb9c84ce8465.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    height: 100vh; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    color: #f8f4f4; 
+    font-size: 5rem; 
+    font-weight: bold; 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.mar_word p{
+    transition: 0.3s;
+}
+
+.mar_word:hover p{
+    color:red;
+    font-size: 5rem; 
+    transform: scale(1.2); 
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    
+}
+.rue_word p{
+    transition: 0.3s;
+}
+
+.rue_word:hover p{
+    color:rgb(23, 138, 67);
+    font-size: 5rem; 
+    transform: scale(1.2); 
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    
+}.cos_word p{
+    transition: 0.3s;
+}
+
+.cos_word:hover p{
+    color:red;
+    font-size: 5rem; 
+    transform: scale(1.2); 
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    
+}

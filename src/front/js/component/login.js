@@ -1,4 +1,3 @@
-import React from "react";
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 
@@ -13,7 +12,7 @@ export const Login = () => {
     });
     const handleSubmit = (e) => {
         e.preventDefault();
-        actions.Login(form);
+        actions.login(form);
 
     };
     return(

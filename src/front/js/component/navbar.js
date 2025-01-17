@@ -24,6 +24,8 @@ export const Navbar = () => {
                     "TripGeeks: Conecta con el mundo a través de tus viajes"
                 </div>
                 <div>
+                        <span className="inicioSesion">Iniciar Sesión</span>
+                        <span className="Registrarse">Registrarse</span>
                     <input
                         type="text"
                         style={{ borderRadius: "50px", border: "0px", height: "40px" }}

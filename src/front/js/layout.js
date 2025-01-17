@@ -12,6 +12,7 @@ import { Footer } from "./component/footer";
 import { Europa } from "./pages/europe";
 import { Asia } from "./pages/asia";
 import { Africa } from "./pages/africa";
+import { Registro } from "./component/formularioRegistro";
 
 //create your first component
 const Layout = () => {
@@ -31,6 +32,7 @@ const Layout = () => {
                         <Route element={<Europa />} path="/europa" />
                        <Route element={<Asia />} path="/asia" />
                        <Route element={<Africa />} path="/africa" />
+                       <Route element = {<Registro />} path= "/formularioRegistro" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

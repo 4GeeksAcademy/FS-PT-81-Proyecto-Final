@@ -1,7 +1,7 @@
 import React from "react";
 import {useContext, useState  } from "react";
 import { Context } from "../store/appContext";
-
+import { Navbar  } from "../component/navbar"
 
 
 export const Registro = () => {
@@ -16,6 +16,8 @@ export const Registro = () => {
 
 	};
     return(
+        <div>
+            <Navbar/>
         <form onSubmit={handleSubmit}>
             <h2>Registro</h2>
             <input
@@ -32,5 +34,6 @@ export const Registro = () => {
             />
             <button type="submit">Registrarse</button>
         </form>
-    )
-}
+        </div>
+    );
+};

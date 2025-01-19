@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
+import '../../styles/login.css'
 
 
 
@@ -16,9 +17,10 @@ export const Login = () => {
 
     };
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <h2>Iniciar Sesión</h2>
+        <div mb-5>
+            <br></br>
+            <form className="bodylogin" onSubmit={handleSubmit}>
+                <h2 className="titlelogin">Iniciar Sesión</h2>
                 <input
                     type="email"
                     placeholder="Email"
@@ -33,14 +35,6 @@ export const Login = () => {
                 />
                 <button type="submit">Iniciar Sesión</button>
             </form>
-            <footer className="footer text-center" style={{ backgroundColor: "#32C8D9" }}>
-                <span className="nocuenta">Aun no tienes cuenta de TripGeeks?</span>
-                <button>Registrate</button>
-                <p className="textFooter">
-                    TripGeeks<i className="fa-solid fa-copyright" />
-                    <a href="http://www.4geeksacademy.com"></a>
-                </p>
-            </footer>
         </div>
     );
 };

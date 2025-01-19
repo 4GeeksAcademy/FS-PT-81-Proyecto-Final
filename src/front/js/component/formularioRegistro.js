@@ -1,8 +1,8 @@
 import React from "react";
 import { useContext, useState } from "react";
 import { Context } from "../store/appContext";
-import { Navbar } from "../component/navbar"
-import { Footer } from "./footer";
+import '../../styles/formularioRegistro.css'
+
 
 
 export const Registro = () => {
@@ -18,14 +18,22 @@ export const Registro = () => {
     };
     return (
         <div>
-            <Navbar />
-            <div className="container mt-5">
-                <br></br>
+            <div className="bodyregister mt-5">
                 <h2 className="titleregister mt-5">Registrate</h2>
                 <form onSubmit={handleSubmit}>
+                <div className="mb-3">
+                        <label className="labelname">Name</label>
+                        <input className="inputname"
+                            type="name"
+                            placeholder="Nombre"
+                            value={form.name}
+                            onChange={(e) => setForm({ ...form, name: e.target.value })}
+                            required
+                        />
+                    </div>
                     <div className="mb-3">
-                        <label>Email</label>
-                        <input
+                        <label className="emaillabel">Email</label>
+                        <input className="inputemail"
                             type="email"
                             placeholder="Email"
                             value={form.email}
@@ -34,8 +42,8 @@ export const Registro = () => {
                         />
                     </div>
                     <div className="mb-3">
-                        <label>Contraseña</label>
-                        <input
+                        <label className="contralabel">Contraseña</label>
+                        <input className="inputcontra"
                             type="password"
                             placeholder="Contraseña"
                             value={form.contraseña}
@@ -43,7 +51,7 @@ export const Registro = () => {
                             required
                         />
                     </div>
-                    <button type="submit">Registrarse</button>
+                    <button className="butonregister" type="submit">Registrarse</button>
                 </form>
                
             </div >

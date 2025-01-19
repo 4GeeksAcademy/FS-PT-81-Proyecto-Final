@@ -25,10 +25,10 @@ export const Navbar = () => {
                 </div>
                 <div>
                     <Link to = "/login">
-                        <span className="inicioSesion">Iniciar Sesión</span>
+                        <span className="textlogin">Iniciar Sesión</span>
                         </Link>
                         <Link to="/Registro">
-                        <span className="Registrarse">Registrarse</span>
+                        <span className="textlogin">Registrarse</span>
                         </Link>
                     <input
                         type="text"

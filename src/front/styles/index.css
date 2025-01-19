@@ -13,6 +13,17 @@
     font-family: 'Margarine', cursive;
     margin-right:3px;
 }
+.textlogin{
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+.textlogin:hover{
+    color: #ffd700;
+    transform: scale(1,1);
+}
 
 
 

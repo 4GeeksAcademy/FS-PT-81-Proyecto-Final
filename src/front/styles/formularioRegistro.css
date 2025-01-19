@@ -1,0 +1,75 @@
+.bodyregister{
+    margin: 0;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    background-image: url(https://bpic.588ku.com/back_origin_min_pic/21/08/19/a25663853080894c5e95af224dc98487.jpg!/fw/750/quality/99/unsharp/true/compress/true);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-color:#f5f5f5;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 50px;
+
+}
+
+.titleregister{
+    font-size: 2.5rem;
+    color: #e7eff8;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: start;
+}
+
+form{
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.bodyregister input{
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    background-color: #f8f9fa;
+    transition: border-color 0.3s;
+
+}
+.bodyregister input:focus{
+    border-color: #007bff;
+    outline: none;
+}
+.bodyregister button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg, #007bff,#17a2b8);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+.bodyregister button:hover{
+    background: linear-gradient(90deg, #0056b3, #138496);
+
+}
+.mb-3{
+    margin-bottom: 1,2rem;
+
+}
+
+label{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #0056b3;
+    display: block;
+    margin-bottom: 0.5rem;
+}

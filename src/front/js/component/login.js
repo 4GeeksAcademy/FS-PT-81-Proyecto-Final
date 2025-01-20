@@ -1,40 +1,31 @@
-import React, { useContext, useState } from "react";
-import { Context } from "../store/appContext";
+import React from "react";
 import '../../styles/login.css'
 
 
 
-export const Login = () => {
+export const Login = ({ email, setEmail, password, setPassword, handleLogin }) => {
 
-    const { store, actions } = useContext(Context);
-    const [form, setForm] = useState({
-        email: '',
-        contraseña: ''
-    });
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        actions.login(form);
-
-    };
     return (
-        <div mb-5>
-            <br></br>
-            <form className="bodylogin" onSubmit={handleSubmit}>
-                <h2 className="titlelogin">Iniciar Sesión</h2>
+        <form className="bodylogin" onSubmit={handleLogin}>
+            <div>
+                <label>Email</label>
                 <input
                     type="email"
                     placeholder="Email"
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    value={email}
+                    onChange={(e) => setEmail( e.target.value )}
                 />
+            </div>
+            <div>
+                <label>Contraseña</label>
                 <input
-                    type="contraseña"
+                    type="password"
                     placeholder="Contraseña"
-                    value={form.contraseña}
-                    onChange={(e) => setForm({ ...form, contraseña: e.target.value })}
+                    value={password}
+                    onChange={(e) => setPassword( e.target.value)}
                 />
+                </div>
                 <button type="submit">Iniciar Sesión</button>
-            </form>
-        </div>
+        </form>
     );
 };

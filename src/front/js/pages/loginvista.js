@@ -10,27 +10,23 @@ export const LoginVista = () => {
     const handleLogin = (e) => {
         e.preventDefault();
         if (email === "usuario@hotmail.com" && password === "123456") {
+            alert("Inicio de sesión");
             navigate("/vistaPerfil");
+        } else {
+            alert("Credenciales incorrectas")
         }
     };
     return (
         <div>
             <h2>Iniciar Sesión</h2>
-            <form onSubmit={handleLogin}>
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <input
-                    type="password"
-                    placeholder="Contraseña"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button type="submit">Iniciar Sesión</button>
-            </form>
+            <Login
+                email={email}
+                setEmail={setEmail}
+                password={password}
+                setPassword={setPassword}
+                handleLogin={handleLogin}
+            />
+
         </div>
     );
 };

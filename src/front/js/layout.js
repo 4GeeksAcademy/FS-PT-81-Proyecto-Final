@@ -14,6 +14,7 @@ import { Asia } from "./pages/asia";
 import { Africa } from "./pages/africa";
 import { Registro} from "./component/formularioRegistro";
 import {LoginVista} from "./pages/loginvista";
+import { PerfilVista } from "./pages/vistaPerfil";
 
 //create your first component
 const Layout = () => {
@@ -35,6 +36,8 @@ const Layout = () => {
                        <Route element={<Africa />} path="/africa" />
                        <Route element = {<LoginVista />} path= "/login" />
                        <Route element = {<Registro/>} path= "/Registro" />
+                       <Route element = {<PerfilVista/>} path= "/vistaPerfil" />
+
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

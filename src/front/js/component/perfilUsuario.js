@@ -92,13 +92,16 @@ export const PerfilUsuario = () => {
                                 </ul>
                             </li>
                         </ul>
-                        <div><main>{usuario ? (<div><h1>Bienvenido, {usuario.nombre}!</h1>
-                            <Destinos puntosInteres={puntosInteres} destinos={destinos} />
-                        </div>
-                        ) : (
-                            <p>cargando información.......</p>
-                        )}
-                        </main>
+                        <div>
+                            <main>{usuario ? (
+                                <div>
+                                    <h1>Bienvenido, {usuario.nombre}!</h1>
+                                    <Destinos puntosInteres={puntosInteres} destinos={destinos} />
+                                </div>
+                            ) : (
+                                <p>cargando información.......</p>
+                            )}
+                            </main>
                         </div>
                         <form className="d-flex mt-3" role="search">
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />

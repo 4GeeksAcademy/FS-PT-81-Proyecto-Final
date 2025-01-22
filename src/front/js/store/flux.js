@@ -14,7 +14,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						'Content-Type': 'application/json'
 					}
 				});
-				if (!resp.ok) throw new Error('Error obteniendo usuario');
+				if (!response.ok) throw new Error('Error obteniendo usuario');
 				const data = await response.json();
 				setStore({ perfilUsuario: data});
 			} catch (error) {

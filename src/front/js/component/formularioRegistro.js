@@ -1,19 +1,22 @@
 import React from "react";
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import '../../styles/formularioRegistro.css'
 
 
 
 export const Registro = () => {
-    const { store, actions } = useContext(Context);
+    const { store, actions, } = useContext(Context);
+    const navigate = useNavigate();
     const [form, setForm] = useState({
+        name:"",
         email: '',
         contraseña: ''
     });
     const handleSubmit = e => {
         e.preventDefault();
-        actions.registro(form);
+        actions.registro(form, navigate);
 
     };
     return (
@@ -53,7 +56,7 @@ export const Registro = () => {
                     </div>
                     <button className="butonregister" type="submit">Registrarse</button>
                 </form>
-               
+              {store.error && <p className="mensaje de error">{store.error}</p>} 
             </div >
         </div>
     );

@@ -2,10 +2,9 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Favourites,Posts, Comments
+from api.models import db, Users, Favourites,Posts, Comments
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
-from models import db, Users, Posts, Comments, Favourites
 
 api = Blueprint('api', __name__)
 
@@ -129,7 +128,7 @@ def add_favourite():
         return jsonify({'error': 'user_id and post_id are required'}), 400
 
     user = User.query.get(user_id)
-    post = Post.query.get(post_id)
+    post = Posts.query.get(post_id)
 
     if not user:
         return jsonify({'error': 'User not found'}), 404

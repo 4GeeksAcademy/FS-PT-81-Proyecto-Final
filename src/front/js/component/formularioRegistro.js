@@ -10,15 +10,14 @@ export const Registro = () => {
     const { store, actions, } = useContext(Context);
     const navigate = useNavigate();
     const [form, setForm] = useState({
-        name:"",
-        email: '',
-        contraseña: ''
+       username:"",
+        email: "",
+        contraseña: "",
     });
-    const handleSubmit = e => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        actions.registro(form, navigate);
-
-    };
+       await actions.registro(form, navigate);
+     };
     return (
         <div>
             <div className="bodyregister mt-5">
@@ -29,8 +28,8 @@ export const Registro = () => {
                         <input className="inputname"
                             type="name"
                             placeholder="Nombre"
-                            value={form.name}
-                            onChange={(e) => setForm({ ...form, name: e.target.value })}
+                            value={form.username}
+                            onChange={(e) => setForm({ form, username: e.target.value })}
                             required
                         />
                     </div>
@@ -40,7 +39,7 @@ export const Registro = () => {
                             type="email"
                             placeholder="Email"
                             value={form.email}
-                            onChange={(e) => setForm({ ...form, email: e.target.value })}
+                            onChange={(e) => setForm({ form, email: e.target.value })}
                             required
                         />
                     </div>
@@ -49,8 +48,8 @@ export const Registro = () => {
                         <input className="inputcontra"
                             type="password"
                             placeholder="Contraseña"
-                            value={form.contraseña}
-                            onChange={(e) => setForm({ ...form, contraseña: e.target.value })}
+                            value={form.password}
+                            onChange={(e) => setForm({form, password: e.target.value })}
                             required
                         />
                     </div>

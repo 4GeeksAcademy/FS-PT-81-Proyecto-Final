@@ -12,11 +12,21 @@ export const Registro = () => {
     const [form, setForm] = useState({
        username:"",
         email: "",
-        contraseña: "",
+        password: "",
     });
+    const handleChange = (e) => {
+        setForm({...form, [e.target.name]: e.target.value,
+        });
+    };
     const handleSubmit = async (e) => {
         e.preventDefault();
-       await actions.registro(form, navigate);
+        try {
+           await actions.createUser(form,navigate); 
+           navigate("/login");
+        } catch (error) {
+            console.error("Error al registrar el usuario", error)
+            
+        }
      };
     return (
         <div>
@@ -26,10 +36,11 @@ export const Registro = () => {
                 <div className="mb-3">
                         <label className="labelname">Name</label>
                         <input className="inputname"
-                            type="name"
+                            type="text"
+                            name="username"
                             placeholder="Nombre"
                             value={form.username}
-                            onChange={(e) => setForm({ form, username: e.target.value })}
+                            onChange={handleChange}
                             required
                         />
                     </div>
@@ -37,9 +48,10 @@ export const Registro = () => {
                         <label className="emaillabel">Email</label>
                         <input className="inputemail"
                             type="email"
+                            name="email"
                             placeholder="Email"
                             value={form.email}
-                            onChange={(e) => setForm({ form, email: e.target.value })}
+                            onChange={handleChange}
                             required
                         />
                     </div>
@@ -47,9 +59,10 @@ export const Registro = () => {
                         <label className="contralabel">Contraseña</label>
                         <input className="inputcontra"
                             type="password"
+                            name="password"
                             placeholder="Contraseña"
                             value={form.password}
-                            onChange={(e) => setForm({form, password: e.target.value })}
+                            onChange={handleChange}
                             required
                         />
                     </div>

@@ -1,13 +1,101 @@
 @import url('https://fonts.googleapis.com/css2?family=Margarine&display=swap');
 
-.textNavbar {
+.text-Navbar {
      font-size:24px;
      font-family: 'Margarine', cursive;
      display:flex;
      justify-content: center;
-     margin-right:350px;
-     color:white;
-}
+     margin-right:500px;
+     color:white;}
+
+.navbar .auth-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        position: absolute; /* Clave para posicionar */
+        top: 10px;          /* Distancia desde la parte superior */
+        right: 10px;        /* Distancia desde la derecha */
+           /* Asegura que quede encima de otros elementos */
+    }
+    
+    /* Estilos para los textos de Iniciar Sesión y Registrarse */
+    .navbar .auth-container .textlogin {
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    
+    /* Input de búsqueda dentro del auth-container */
+    .navbar .auth-container input {
+        border-radius: 50px;
+        border: none;
+        height: 40px;
+        padding-left: 10px;
+    }
+    
+    /* Ajustes para pantallas medianas (tablets) */
+    @media (max-width: 768px) {
+        .navbar .auth-container {
+            flex-direction: column; /* Apila los elementos verticalmente */
+            align-items: flex-end;  /* Alinea al lado derecho */
+            gap: 10px;
+            top: 10px;
+            right: 10px;
+        }
+    
+        .navbar .auth-container input {
+            width: 200px;
+            position:absolute;
+            right:200px;
+        }
+    }
+    
+    /* Ajustes para pantallas pequeñas (móviles) */
+    @media (max-width: 480px) {
+        .navbar .auth-container {
+            flex-direction: column; /* Apila los elementos verticalmente */
+            align-items: flex-end;  /* Alinea al lado derecho */
+            gap: 5px;
+            top: 15px;
+            right: 5px;
+        }
+    
+        .navbar .auth-container input {
+            width: 100px;
+            margin-top: 5px;
+            right:120px;
+        }
+    }
+    
+
+ /* Asegúrate de que el body y html ocupen el 100% de la pantalla */
+
+  
+  /* Asegura que el contenido principal ocupe todo el espacio restante */
+  
+  
+  /* Footer siempre abajo */
+  footer {
+    background-color: #00c4cc; /* Cambia este color según tu diseño */
+    color: white;
+    width:100%;
+    text-align:center;
+   
+    margin-top:auto;
+    
+  }
+
+
+  body{
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+    
+  }
+  
+  
+
 .textFooter{
     color:rgb(100, 100, 100);
     font-family: 'Margarine', cursive;

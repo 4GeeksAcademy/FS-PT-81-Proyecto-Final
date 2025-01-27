@@ -2,13 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import '../../styles/index.css';
 
+
 export const Navbar = () => {
     return (
-        <nav className="navbar navbar-dark fixed-top" style={{ backgroundColor: "#32C8D9" }}>
+        <nav className="navbar navbar-dark navbar-expanded-lg fixed-top" style={{ backgroundColor: "#32C8D9" }}>
             <div className="container-fluid d-flex">
 
                 <button
-                    className="navbar-toggler d-flex"
+                    className="menu navbar-toggler d-flex"
                     type="button"
                     data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasDarkNavbar"
@@ -19,23 +20,21 @@ export const Navbar = () => {
                     </span>
                 </button>
                 <div
-                    className="textNavbar d-flex justify-content-center align-items-center text-align-center"
-                    style={{ margin: "auto" }}>
+                    className="text-Navbar d-none d-lg-flex">
                     "TripGeeks: Conecta con el mundo a través de tus viajes"
                 </div>
-                <div>
-                    <Link to = "/login">
-                        <span className="textlogin">Iniciar Sesión</span>
-                        </Link>
-                        <Link to="/Registro">
-                        <span className="textlogin">Registrarse</span>
-                        </Link>
-                    <input
-                        type="text"
-                        style={{ borderRadius: "50px", border: "0px", height: "40px" }}
-                        placeholder="    ¡Haz tu búsqueda!   "
-                    />
-                </div>
+                <div className="auth-container">
+    <Link to="/login">
+        <span className="textlogin">Iniciar Sesión</span>
+    </Link>
+    <Link to="/Registro">
+        <span className="textlogin">Registrarse</span>
+    </Link>
+    <input className="d-none d-lg-flex"
+        type="text"
+        placeholder="¡Haz tu búsqueda!"
+    />
+</div>
                 <div className="offcanvas offcanvas-start text-bg-dark" tabIndex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
                     <div className="offcanvas-header">
                         <Link to="/" style={{ textDecoration: "none", color: "black" }}>

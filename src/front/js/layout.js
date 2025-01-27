@@ -10,6 +10,9 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Europa } from "./pages/europe";
+import { Sevilla } from "./pages/sevilla";
+import { Barcelona } from "./pages/barcelona";
+import { Madrid } from "./pages/madrid";
 import { Asia } from "./pages/asia";
 import { Africa } from "./pages/africa";
 import { Registro} from "./component/formularioRegistro";
@@ -32,11 +35,14 @@ const Layout = () => {
                     <Routes>
                         <Route element={<Home />} path="/" />
                         <Route element={<Europa />} path="/europa" />
-                       <Route element={<Asia />} path="/asia" />
-                       <Route element={<Africa />} path="/africa" />
-                       <Route element = {<LoginVista />} path= "/login" />
-                       <Route element = {<Registro/>} path= "/Registro" />
-                       <Route element = {<PerfilVista/>} path= "/vistaPerfil" />
+                        <Route element={<Sevilla />} path="/sevilla" />
+                        <Route element = {<Barcelona />} path= "/barcelona"/>
+                        <Route element={<Madrid />} path ="/madrid" />
+                        <Route element={<Asia />} path="/asia" />
+                        <Route element={<Africa />} path="/africa" />
+                        <Route element = {<LoginVista />} path= "/login" />
+                        <Route element = {<Registro />} path= "/Registro" />
+                        <Route element = {<PerfilVista />} path= "/vistaPerfil" />
 
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>

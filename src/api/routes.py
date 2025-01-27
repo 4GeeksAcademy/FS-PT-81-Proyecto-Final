@@ -2,11 +2,9 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Favourites,Posts, Comments
+from api.models import db, Users, Favourites,Posts, Comments
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
-from models import db, Users, Posts, Comments, Favourites
-
 api = Blueprint('api', __name__)
 
 # Allow CORS requests to this API
@@ -18,7 +16,6 @@ def delete_user(id):
     user = Users.query.get_or_404(id)
     db.session.delete(user)
     db.session.commit()
-
     return jsonify({'message': f'User {id} deleted'}), 200
 
 @api.route('/users', methods=['GET'])
@@ -28,33 +25,28 @@ def get_users():
 
 @api.route('/users/<int:id>', methods=['GET'])
 def get_user(id):
-    user = Users.query.get_or_404(id) 
+    user = Users.query.get_or_404(id)
     return jsonify(user.serialize())
 
 @api.route('/users', methods=['POST'])
 def create_user():
     data = request.get_json()
-    username = data.get('username')  
-    email = data.get('email')        
-    password = data.get('password')  
-
+    username = data.get('username')
+    email = data.get('email')
+    password = data.get('password')
     if not username or not email or not password:
         return jsonify({'message': 'Todos los campos son necesarios'}), 400
-
-    
     return jsonify({'message': 'Usuario creado exitosamente'}), 201
-
-
 
 # ----------------- POSTS -------------------- #
 @api.route('/posts', methods=['GET'])
 def get_posts():
-    posts = Posts.query.all()  
+    posts = Posts.query.all()
     return jsonify([post.serialize() for post in posts])
 
 @api.route('/posts/<int:id>', methods=['GET'])
 def get_post(id):
-    post = Posts.query.get_or_404(id) 
+    post = Posts.query.get_or_404(id)
     return jsonify(post.serialize())
 
 @api.route('/posts', methods=['POST'])
@@ -63,20 +55,23 @@ def create_post():
     title = data.get('title')
     body = data.get('body')
     image = data.get('image')
-
     if not title or not body or not image:
         return jsonify({'message': 'Todos los campos son necesarios'}), 400
-
-   
     return jsonify({'message': 'Post creado exitosamente'}), 201
 
 @api.route('/posts/<int:id>', methods=['DELETE'])
 def delete_post(id):
-    post = Posts.query.get_or_404(id)  
+    post = Posts.query.get_or_404(id)
     db.session.delete(post)
-    db.session.commit()
+    data = request.get_json()
+    username = data.get('username')  
+    email = data.get('email')        
+    password = data.get('password')  
 
-    return jsonify({'message': f'Post {id} deleted'}), 200
+    if not username or not email or not password:
+        return jsonify({'message': 'Todos los campos son necesarios'}), 400
+
+    return jsonify({'message': 'Usuario creado exitosamente'}), 201
 
 # ----------------- COMMENTS ------------------ #
 @api.route('/comments', methods=['GET'])
@@ -128,8 +123,8 @@ def add_favourite():
     if not user_id or not post_id:
         return jsonify({'error': 'user_id and post_id are required'}), 400
 
-    user = User.query.get(user_id)
-    post = Post.query.get(post_id)
+    user = Users.query.get(user_id)
+    post = Posts.query.get(post_id)
 
     if not user:
         return jsonify({'error': 'User not found'}), 404
@@ -163,21 +158,7 @@ def delete_favourite():
         return jsonify({'error': 'Favourite not found'}), 404
 
     db.session.delete(favourite)
+
     db.session.commit()
-
-    return jsonify({'message': 'Favourite deleted successfully'}), 200
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
+    return jsonify({'message': f'Post {id} deleted'}), 200
 

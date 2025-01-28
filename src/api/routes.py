@@ -5,6 +5,8 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, Users, Favourites,Posts, Comments
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
+from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required
+from werkzeug.security import generate_password_hash, check_password_hash
 api = Blueprint('api', __name__)
 
 # Allow CORS requests to this API
@@ -28,15 +30,56 @@ def get_user(id):
     user = Users.query.get_or_404(id)
     return jsonify(user.serialize())
 
-@api.route('/users', methods=['POST'])
+@api.route('/register', methods=['POST'])
 def create_user():
     data = request.get_json()
-    username = data.get('username')
-    email = data.get('email')
-    password = data.get('password')
+    username = data.get('username', None)
+    email = data.get('email', None)
+    password = data.get('password', None)  
+    
     if not username or not email or not password:
         return jsonify({'message': 'Todos los campos son necesarios'}), 400
-    return jsonify({'message': 'Usuario creado exitosamente'}), 201
+    
+    exist_email = Users.query.filter_by(email=email).first()
+    if exist_email:
+        return jsonify({"message": "Ya existe un usuario con ese email"}), 400
+    exist_username = Users.query.filter_by(username=username).first()
+    if exist_username:
+        return jsonify({"message": "Ya existe un usuario con ese nombre"}), 400
+    
+    hashed_password = generate_password_hash(password)
+    
+    new_user = Users(email=email, username=username, password=hashed_password)
+    db.session.add(new_user)
+    db.session.commit()
+    
+    token = create_access_token(identity=new_user.id)
+    
+    return jsonify({"message": "Usuario creado exitosamente", "token": token}), 201
+
+
+@api.route('/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    email = data.get('email', None)
+    password = data.get('password', None)  
+    
+    if not email or not password:
+        return jsonify({'message': 'Todos los campos son necesarios'}), 400
+    
+    
+    exist = Users.query.filter_by(email=email).first()
+    if not exist:
+        return jsonify({"message": "Usuario no encontrado"}), 404
+    
+   
+    if not check_password_hash(exist.password, password):
+        return jsonify({"message": "email/password incorrectos"}), 401
+    
+    
+    token = create_access_token(identity=str(exist.id))
+    
+    return jsonify({"message": "Inicio de sesión exitoso", "token": token}), 200
 
 # ----------------- POSTS -------------------- #
 @api.route('/posts', methods=['GET'])

@@ -1,7 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
-import { Link  } from "react-router-dom";
+import { Link } from "react-router-dom";
 import '../../styles/login.css'
 
 export const LoginVista = () => {
@@ -9,23 +9,31 @@ export const LoginVista = () => {
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("")
     const navigate = useNavigate();
-    const validUser = email === "" && password === "";
-    if (validUser) {
-        navigate("/Perfil");
-    };
 
-const handleLogin = (e) => {
-    e.preventDefault();
-    actions.loginUser({ email, password }, navigate);
-    setCredentials({
-        ...credentials, [e.target.name]: e.target.value,
-    });
-};
+    useEffect(() => {
+        if (store.currentUser) {
+            navigate("/Perfil");
+        }
+    }, [store.currentUser, navigate]);
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        if (!email || !password) {
+            console.error("debe ingresar e,ail y contraseña");
+            return;
+        }
+        const succes =  actions.loginUser({ email, password }, navigate);
+        if (succes) {
+            console.log("Sesion iniciada, redirigiendo.....");
+            navigate("/perfil");
+        } else {
+            console.error("Error iniciando sesion", store.error);
+        }
+    };
 
 return (
     <div className="bodylogin">
-        <h2 classname="titlelogin" mb-5 mt-5>Iniciar Sesión</h2>
-
+        <h1 className="titlelogin" mt-5>Iniciar Sesión</h1>
         <form onSubmit={handleLogin}>
             <div>
                 <label>Email  </label>
@@ -34,7 +42,7 @@ return (
                     name="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    requiered
+
                 />
             </div>
             <div>
@@ -44,15 +52,15 @@ return (
                     name="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    requiered
+
                 />
             </div>
         </form>
         <button type="submit">Iniciar Sesión</button>
         <div>
-            <Link to="recuperar-Contrasena">¿Olvidaste tu Contraseña?</Link>
+            <Link to="recuperar-contraseña">¿Olvidaste tu Contraseña?</Link>
         </div>
-        
+
 
 
     </div>

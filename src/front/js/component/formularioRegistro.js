@@ -9,6 +9,7 @@ import '../../styles/formularioRegistro.css'
 export const Registro = () => {
     const { store, actions, } = useContext(Context);
     const navigate = useNavigate();
+
     const [form, setForm] = useState({
        username:"",
         email: "",
@@ -20,9 +21,19 @@ export const Registro = () => {
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!form.username || !form.email || !form.password) {
+            console.error("Todos los campos son obligatorios");
+            return;
+        }
         try {
-           await actions.createUser(form,navigate); 
-           navigate("/login");
+            console.log("enviando datos de registro", form);
+            const succes = await actions.createUser(form, navigate);
+            if (succes) {
+                console.log("registro valido, redirigiendo....");
+                navigate("/login");
+            } else {
+                console.error("Error al regsitrar el usuario", store.error);
+            }
         } catch (error) {
             console.error("Error al registrar el usuario", error)
             

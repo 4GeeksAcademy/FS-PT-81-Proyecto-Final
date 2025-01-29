@@ -11,7 +11,7 @@ export const PerfilUsuario = () => {
     const navigate = useNavigate();
     const { store, actions } = useContext(Context);
     useEffect(() => {
-        actions.getPerfilUsuario();
+        actions.getUsers();
     }, []);
 
     return (
@@ -22,7 +22,7 @@ export const PerfilUsuario = () => {
                 {store.perfilUsuario ? (
                     <>
                         <h1 className="bienbenida">
-                            Bienvenido, {store.perfilUsuario.name}
+                            Bienvenido, {store.user.name}
                         </h1>
                         <p className="exploraPerfil">Explora los puntos de interés y tus destinos favoritos</p>
                     </>

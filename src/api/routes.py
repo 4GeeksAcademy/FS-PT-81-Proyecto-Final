@@ -12,8 +12,8 @@ api = Blueprint('api', __name__)
 # Allow CORS requests to this API
 CORS(api)
 
-# ----------------- USERS -------------------- #
 @api.route('/users/<int:id>', methods=['DELETE'])
+@jwt_required()
 def delete_user(id):
     user = Users.query.get_or_404(id)
     db.session.delete(user)
@@ -57,7 +57,6 @@ def create_user():
     
     return jsonify({"message": "Usuario creado exitosamente", "token": token}), 201
 
-
 @api.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
@@ -67,15 +66,12 @@ def login():
     if not email or not password:
         return jsonify({'message': 'Todos los campos son necesarios'}), 400
     
-    
     exist = Users.query.filter_by(email=email).first()
     if not exist:
         return jsonify({"message": "Usuario no encontrado"}), 404
     
-   
     if not check_password_hash(exist.password, password):
         return jsonify({"message": "email/password incorrectos"}), 401
-    
     
     token = create_access_token(identity=str(exist.id))
     
@@ -93,6 +89,7 @@ def get_post(id):
     return jsonify(post.serialize())
 
 @api.route('/posts', methods=['POST'])
+@jwt_required()
 def create_post():
     data = request.get_json()
     title = data.get('title')
@@ -103,18 +100,13 @@ def create_post():
     return jsonify({'message': 'Post creado exitosamente'}), 201
 
 @api.route('/posts/<int:id>', methods=['DELETE'])
+@jwt_required()
 def delete_post(id):
     post = Posts.query.get_or_404(id)
     db.session.delete(post)
-    data = request.get_json()
-    username = data.get('username')  
-    email = data.get('email')        
-    password = data.get('password')  
+    db.session.commit()
+    return jsonify({'message': f'Post {id} deleted'}), 200
 
-    if not username or not email or not password:
-        return jsonify({'message': 'Todos los campos son necesarios'}), 400
-
-    return jsonify({'message': 'Usuario creado exitosamente'}), 201
 
 # ----------------- COMMENTS ------------------ #
 @api.route('/comments', methods=['GET'])
@@ -127,18 +119,29 @@ def get_comment(id):
     comment = Comments.query.get_or_404(id)  
     return jsonify(comment.serialize())
 
+
 @api.route('/comments', methods=['POST'])
+@jwt_required()
 def create_comment():  
+    
+    id = get_jwt_identity()
+
     data = request.get_json() 
     comment_text = data.get('comment_text')
   
+    
     if not comment_text: 
         return jsonify({'message': 'El campo comment_text es necesario'}), 400
 
-   
+    
+    comment = Comments(user_id=id, comment_text=comment_text, post_id= data["post_id"])
+    db.session.add(comment)
+    db.session.commit()
     return jsonify({'message': 'Comentario creado exitosamente'}), 201
 
+
 @api.route('/comments/<int:id>', methods=['DELETE'])
+@jwt_required()
 def delete_comment(id):  
     comment = Comments.query.get_or_404(id)
     db.session.delete(comment)
@@ -148,23 +151,31 @@ def delete_comment(id):
 
 # ----------------- FAVOURITES ----------------- #
 @api.route('/favourites', methods=['GET'])
+@jwt_required()
 def get_favourites():
     all_favourites = Favourites.query.all()
     return jsonify([favourite.serialize() for favourite in all_favourites])
 
 @api.route('/favourites/<int:id>', methods=['GET'])
+@jwt_required()
 def get_favourite(id):
     favourite = Favourites.query.get_or_404(id) 
     return jsonify(favourite.serialize())
 
 @api.route('/favourites', methods=['POST'])
+@jwt_required()
 def add_favourite():
+    current_user_id = get_jwt_identity()
+    
     data = request.get_json()
     user_id = data.get('user_id')
     post_id = data.get('post_id')
 
     if not user_id or not post_id:
         return jsonify({'error': 'user_id and post_id are required'}), 400
+
+    if current_user_id != user_id:
+        return jsonify({'error': 'You are not authorized to add to another user\'s favourites'}), 403
 
     user = Users.query.get(user_id)
     post = Posts.query.get(post_id)
@@ -178,15 +189,10 @@ def add_favourite():
     db.session.add(new_favourite)
     db.session.commit()
 
-    return jsonify({
-        'message': 'Favourite added successfully',
-        'favourite': {
-            'user_id': new_favourite.user_id,
-            'post_id': new_favourite.post_id
-        }
-    }), 201
+    return jsonify({'message': 'Favourite added successfully'}), 201
 
 @api.route('/favourites', methods=['DELETE'])
+@jwt_required()
 def delete_favourite():
     data = request.get_json()
     user_id = data.get('user_id')
@@ -201,7 +207,6 @@ def delete_favourite():
         return jsonify({'error': 'Favourite not found'}), 404
 
     db.session.delete(favourite)
-
     db.session.commit()
-    return jsonify({'message': f'Post {id} deleted'}), 200
-
+    
+    return jsonify({'message': f'Favourite (user_id={user_id}, post_id={post_id}) deleted'}), 200

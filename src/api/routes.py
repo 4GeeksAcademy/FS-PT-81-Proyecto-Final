@@ -191,22 +191,14 @@ def add_favourite():
 
     return jsonify({'message': 'Favourite added successfully'}), 201
 
-@api.route('/favourites', methods=['DELETE'])
+@api.route('/favourites/<int:id>', methods=['DELETE'])
 @jwt_required()
-def delete_favourite():
-    data = request.get_json()
-    user_id = data.get('user_id')
-    post_id = data.get('post_id')
-
-    if not user_id or not post_id:
-        return jsonify({'error': 'user_id and post_id are required'}), 400
-
-    favourite = Favourites.query.filter_by(user_id=user_id, post_id=post_id).first()
-
+def delete_favourite(id): 
+    favourite = Favourites.query.get(id)  
     if not favourite:
         return jsonify({'error': 'Favourite not found'}), 404
 
     db.session.delete(favourite)
     db.session.commit()
     
-    return jsonify({'message': f'Favourite (user_id={user_id}, post_id={post_id}) deleted'}), 200
+    return jsonify({'message': f'Favourite with id={id} deleted'}), 200

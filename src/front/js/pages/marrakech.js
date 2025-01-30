@@ -4,22 +4,20 @@ import { Context } from "../store/appContext";
 import { Weather } from "../component/weather.jsx";
 import '../../styles/destinos_ciudades.css';
 
-export const Barcelona =() => {
+export const Marrakech =() => {
     const [showWeather, setShowWeather ]= useState (false);
     const {store, actions} = useContext(Context);
 
-      useEffect (()=>{
-        if (showWeather && (!store.weather || store.weather.location !== "Barcelona")){
-            actions.getWeather("Barcelona");
-                }
-            }, [showWeather]);
-            const toggleWeather=() =>{
-              setShowWeather(!showWeather);
-            };
-            
-        const barcelonaDestino = store.destinos.find((destino) => destino.nombre ==="Barcelona")
+    useEffect (()=>{
+        if (showWeather && (!store.weather || store.weather.location !== "Marrakech")){
+            actions.getWeather("Marrakech");
+    }
+}, [showWeather]);
+const toggleWeather=() =>{
+   setShowWeather(!showWeather);
+};
 
-
+const marrakechDestino = store.destinos.find((destino) => destino.nombre === "Marrakech")
 return(
     <div>
      <div id="carouselExampleRide" className="carousel slide" data-bs-ride="true">
@@ -56,11 +54,11 @@ return(
         </button>
       </div>
       <div className="container">
-        <h4 className="city_barcelona d-flex">
-            <span className="bar_word">BAR</span>
-            <span className="ce_word">CE</span>
-            <span className="lo_word">LO</span>
-            <span className="na_word">NA</span>
+        <h4 className="city_Marrakech d-flex">
+            <span className="mar_word">MAR</span>
+            <span className="rac_word">RAC</span>
+            <span className="ech_word">ECH</span>
+           
         </h4>
         <div className="list">
             <ul>
@@ -70,24 +68,25 @@ return(
                     Metereología
                 </li>
                 <li>
-                  <a
-                  href={barcelonaDestino?.omsLink}
-                  type="_blank"
-                  rel="noopener noreferrer">
-                    <i className="fa-regular fa-map" />
-                  </a>
+                 <a 
+                 href={marrakechDestino?.omsLink}
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 >
+                  <i className="fa-regular fa-map" />
+                 </a>
 
                 </li>
             </ul>
             <h3>
-                ¿Que no puedes perderte de Barcelona?
+                ¿Que no puedes perderte de Marrakech?
             </h3>
 
         </div>
        
             {showWeather &&  store.weather && (
                 <div className= "weather-container">
-                    {showWeather && <Weather city = "Barcelona" />}
+                    {showWeather && <Weather city = "Marrakech" />}
             
         </div>
         )}

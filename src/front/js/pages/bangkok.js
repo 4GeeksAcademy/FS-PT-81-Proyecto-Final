@@ -4,22 +4,20 @@ import { Context } from "../store/appContext";
 import { Weather } from "../component/weather.jsx";
 import '../../styles/destinos_ciudades.css';
 
-export const Barcelona =() => {
+export const Bangkok =() => {
     const [showWeather, setShowWeather ]= useState (false);
     const {store, actions} = useContext(Context);
 
-      useEffect (()=>{
-        if (showWeather && (!store.weather || store.weather.location !== "Barcelona")){
-            actions.getWeather("Barcelona");
-                }
-            }, [showWeather]);
-            const toggleWeather=() =>{
-              setShowWeather(!showWeather);
-            };
-            
-        const barcelonaDestino = store.destinos.find((destino) => destino.nombre ==="Barcelona")
+    useEffect (()=>{
+        if (showWeather && (!store.weather || store.weather.location !== "Bangkok")){
+            actions.getWeather("Bangkok");
+    }
+}, [showWeather]);
+const toggleWeather=() =>{
+   setShowWeather(!showWeather);
+};
 
-
+const bangkokDestino = store.destinos.find((destino) => destino.nombre === "Bangkok")
 return(
     <div>
      <div id="carouselExampleRide" className="carousel slide" data-bs-ride="true">
@@ -56,7 +54,7 @@ return(
         </button>
       </div>
       <div className="container">
-        <h4 className="city_barcelona d-flex">
+        <h4 className="city_Bangkok d-flex">
             <span className="bar_word">BAR</span>
             <span className="ce_word">CE</span>
             <span className="lo_word">LO</span>
@@ -71,23 +69,22 @@ return(
                 </li>
                 <li>
                   <a
-                  href={barcelonaDestino?.omsLink}
-                  type="_blank"
-                  rel="noopener noreferrer">
+                  href={bangkokDestino?.omsLink}
+                  target="_blank"
+                  rel= "noopener noreferrer">
                     <i className="fa-regular fa-map" />
                   </a>
-
                 </li>
             </ul>
             <h3>
-                ¿Que no puedes perderte de Barcelona?
+                ¿Que no puedes perderte de Bangkok?
             </h3>
 
         </div>
        
             {showWeather &&  store.weather && (
                 <div className= "weather-container">
-                    {showWeather && <Weather city = "Barcelona" />}
+                    {showWeather && <Weather city = "Bangkok" />}
             
         </div>
         )}

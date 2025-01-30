@@ -18,6 +18,7 @@ export const Sevilla = () => {
     setShowWeather(!showWeather); // Alterna entre mostrar y ocultar el clima
   };
 
+  const sevillaDestino = store.destinos.find((destino) => destino.nombre ==="Sevilla")
   return (
     <div>
       <div id="carouselExampleRide" className="carousel slide" data-bs-ride="true">
@@ -67,6 +68,14 @@ export const Sevilla = () => {
             <li onClick={toggleWeather} style={{ cursor: "pointer" }}>
               Meteorología
             </li>
+            <li>
+            <a
+                  href={sevillaDestino?.omsLink}
+                  target="_blank"
+                  rel= "noopener noreferrer">
+                    <i className="fa-regular fa-map" />
+                  </a>
+                  </li>
           </ul>
          <body className="city-body">
          <h3>

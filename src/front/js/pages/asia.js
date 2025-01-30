@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/destinos.css";
+import { useNavigate } from "react-router-dom";
 
 export const Asia = () => {
     const { store } = useContext(Context); // Consumir datos del store
+    const navigate = useNavigate();
 
     // Filtrar destinos que pertenezcan a la región de Asia
     const destinosAsia = store.destinos.filter(destino => destino.region === "Asia");
@@ -18,15 +20,21 @@ export const Asia = () => {
                 <span className="ia_word"><p>IA</p></span>
             </div>
             <div className="row d-flex text-center">
-                {destinosAsia.map((destino, index) => (
-                    <div className="col" key={index}>
-                        <div className="image-wrapper">
-                            <p className="city-name">{destino.nombre}</p>
-                            <img className="cities_img" src={destino.imagen} alt={destino.nombre} />
-                        </div>
-                    </div>
-                ))}
+        {destinosAsia.map((destino, index) => (
+          <div 
+            className="col" 
+            key={index} 
+            onClick={() => destino.ruta && navigate(destino.ruta)} 
+            style={{ cursor: "pointer" }}
+          >
+            <div className="image-wrapper">
+              <p className="city-name">{destino.nombre}</p>
+              <img className="cities_img" src={destino.imagen} alt={destino.nombre} />
             </div>
+          
+          </div>
+        ))}
+      </div>
         </div>
     );
 };

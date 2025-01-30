@@ -16,6 +16,8 @@ export const Madrid =() => {
 const toggleWeather=() =>{
    setShowWeather(!showWeather);
 };
+
+const madridDestino = store.destinos.find((destino)=>destino.nombre === "Madrid")
 return(
     <div>
      <div id="carouselExampleRide" className="carousel slide" data-bs-ride="true">
@@ -65,6 +67,14 @@ return(
                 style={{cursor:"pointer"}}>
                     Metereología
                 </li>
+                <li>
+                <a
+                  href={madridDestino?.omsLink}
+                  target="_blank"
+                  rel= "noopener noreferrer">
+                    <i className="fa-regular fa-map" />
+                  </a>
+                  </li>
             </ul>
             <h3>
                 ¿Que no puedes perderte de Madrid?

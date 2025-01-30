@@ -29,6 +29,7 @@ export const Europa = () => {
               <p className="city-name">{destino.nombre}</p>
               <img className="cities_img" src={destino.imagen} alt={destino.nombre} />
             </div>
+          
           </div>
         ))}
       </div>

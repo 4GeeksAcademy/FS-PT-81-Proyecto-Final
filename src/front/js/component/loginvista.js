@@ -58,7 +58,7 @@ return (
         </form>
         <button type="submit">Iniciar Sesión</button>
         <div>
-            <Link to="recuperar-contraseña">¿Olvidaste tu Contraseña?</Link>
+            <Link to="recuperar-contrasena">¿Olvidaste tu Contraseña?</Link>
         </div>
 
 

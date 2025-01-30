@@ -1,31 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Margarine&display=swap');
 
 .textNavbar {
-     font-size:24px;
-     font-family: 'Margarine', cursive;
-     display:flex;
-     justify-content: center;
-     margin-right:350px;
-     color:white;
-}
-.textFooter{
-    color:rgb(100, 100, 100);
+    font-size: 24px;
     font-family: 'Margarine', cursive;
-    margin-right:3px;
+    display: flex;
+    justify-content: center;
+    margin-right: 350px;
+    color: white;
 }
-.textlogin{
+
+.textFooter {
+    color: rgb(100, 100, 100);
+    font-family: 'Margarine', cursive;
+    margin-right: 3px;
+}
+
+.textlogin {
     color: white;
     text-decoration: none;
     margin: 0 15px;
     transition: color 0.3s, transform 0.3s;
     cursor: pointer;
 }
-.textlogin:hover{
+
+.textlogin:hover {
     color: #ffd700;
-    transform: scale(1,1);
+    transform: scale(1, 1);
 }
-
-
-
-
-

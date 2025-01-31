@@ -1,40 +1,79 @@
-.backGroundHome{
-    
-        background-image: url('https://i0.wp.com/afrofeminas.com/wp-content/uploads/2023/11/Most_visited_countries_in_Africa.jpg?ssl=1');
-        background-size: cover;
-        background-position: center;
-        height: 1000px;
-        width: 100%;  
-        display: flex; 
-        justify-content: center; 
-        align-items: center; 
-        color: white;
-        font-size: 3rem; 
-        font-weight: bolder; 
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-        
-    
+.backGroundHome {
+    background-image: url('https://i0.wp.com/afrofeminas.com/wp-content/uploads/2023/11/Most_visited_countries_in_Africa.jpg?ssl=1');
+    background-size: cover;
+    background-position: center;
+    height: 1000px; /* Ajusta la altura al 100% de la ventana */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 3rem;
+    font-weight: bolder;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
-.continents{
-    display:flex;
-    flex-direction:row;
+.continents {
+    display: flex;
+    flex-direction: row;
     font-weight: bolder;
-    text-decoration:none;
-    gap:60px;
-    margin-left:0px;
-    margin-right:670px;
-    margin-bottom:750px;
-    
+    text-decoration: none;
+    gap: 60px;
+    margin-left: -500px; /* Centra el contenido */
+    margin-bottom: 750px;
+    flex-wrap: wrap; /* Permite que los elementos pasen a otra línea si no hay espacio */
 }
+
 .continents span {
-    transition: all 0.3s ease; /* Añade una animación suave */
-    cursor: pointer; /* Cambia el cursor a puntero para indicar que es interactivo */
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .continents span:hover {
     color: #FFD700;
-    transform: scale(1.2); 
-    font-size:3.5rem;
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); 
+    transform: scale(1.2);
+    font-size: 3.5rem;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos para tablets */
+@media (max-width: 768px) {
+    .backGroundHome {
+        font-size: 2rem; /* Reduce el tamaño del texto */
+        min-height: auto; /* Permite que la altura se ajuste automáticamente */
+        padding: 20px; /* Añade un poco de espacio alrededor */
+    }
+
+    .continents {
+        gap: 30px; /* Reduce el espacio entre elementos */
+        margin-left:-250px;
+        margin-bottom: 750px; /* Ajusta el margen inferior */
+        justify-content: center; /* Asegura que los elementos estén centrados */
+    }
+
+    .continents span {
+        font-size: 2rem; /* Reduce el tamaño del texto */
+    }
+}
+
+/* Estilos para móviles */
+@media (max-width: 480px) {
+    .backGroundHome {
+        min-height:100vh;
+        font-size: 1rem; /* Reduce aún más el tamaño del texto */
+        height: auto;
+        padding: 10px;
+    }
+
+    .continents {
+        gap: 15px;
+        margin:auto;
+       
+        flex-direction: column; /* Coloca los elementos en una columna */
+        align-items: center; /* Centra los elementos */
+    }
+
+    .continents span {
+        font-size: 2rem; /* Ajusta el tamaño del texto para pantallas pequeñas */
+    }
 }

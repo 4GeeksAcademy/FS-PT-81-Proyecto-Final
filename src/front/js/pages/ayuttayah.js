@@ -79,6 +79,7 @@ return(
 
                 </li>
             </ul>
+            <div className="container descripcion_ciudades">
             <h3>
                 ¿Que no puedes perderte de Ayuttayah?
             </h3>
@@ -98,9 +99,88 @@ return(
             </p>
             <img 
             src="https://www.viajeroscallejeros.com/wp-content/uploads/2019/02/buda-arbol-wat-mahatat.jpg" alt="Wat Mahatgat"
-            style={{width:"20%"}} />
+            style={{width:"20%", border:"2px solid rgb(223, 192, 22)"}} />
 
             </div>
+            
+
+        </div>
+        <h5>
+              Wath Phra Si Sanphet:
+            </h5>
+           <div className="container">
+            <div className="first_paragraph d-flex">
+            <p>
+            "Templo del Sagrado, Espléndido Omnisciente") fue el templo más sagrado ubicado en el viejo palacio real en la antigua capital de Tailandia de Ayutthaya hasta que la ciudad quedó totalmente destruida por los birmanos en 1767.
+
+            </p>
+            <img 
+            src="https://th.bing.com/th/id/R.7eb482b6522ab8e5d2e99765537b292b?rik=dzIW71so3R84gw&pid=ImgRaw&r=0" alt="Wat Phra Si Sanphet"
+            style={{width:"20%", border:"2px solid rgb(223, 192, 22)"}} />
+
+            </div>
+            
+            
+
+        </div>
+        <h5>
+              Wat Chaiwatthanaram:
+            </h5>
+           <div className="container">
+            
+            <div className="first_paragraph d-flex">
+            <p>
+            Wat Chaiwatthanaram es un templo budista construido en el año 1630 por el rey Prasat Thong123. El templo fue diseñado según la tradición Theravada del budismo y es uno de los templos más importantes del Reino de Ayutthaya2. Fue construido como un monumento a la madre del rey Prasat Thong12. Wat Chaiwatthanaram fue un templo real donde el rey celebró ceremonias budistas y se utilizaba como residencia de los reyes
+
+            </p>
+            <img 
+            src="https://th.bing.com/th/id/OIP.CGxhYoMvS8Sn72AeVA95hwHaHa?w=800&h=800&rs=1&pid=ImgDetMain" alt="Wat Chaiwatthanaram"
+            style={{width:"20%", border:"2px solid rgb(223, 192, 22)"}} />
+
+            </div>
+            <h5>
+            Wat Lokayasutharam (El Gran Buda Reclinado):
+            </h5>
+           <div className="container">
+            
+            <div className="first_paragraph d-flex">
+            <p>
+            La imagen de buda está reclinada y descansando sobre una flor de lotto, los dedos de los pies son iguales en tamaño y los pies están inscritos con ciento ocho características del Señor. Ambos ojos y los pies están decoradas con un estilo madre perla.
+
+Según una señal allí presente: «La enorme Buda reclinado representa el momento en el que un gigante llamado Asurindarahu no estaba dispuesto a rendir homenaje a los Budas porque él estaba orgulloso de su enorme cuerpo. El Buda quiso que el gigante fuese menos arrogante, por lo que recurrió a sí mismo como mucho más grande que el gigante.»
+
+            </p>
+            <img 
+            src="https://st3.depositphotos.com/1980693/15008/i/950/depositphotos_150082660-stock-photo-recling-buddha-at-wat-lokayasutharam.jpg" alt=" Wat Lokayasutharam"
+            style={{width:"20%", border:"2px solid rgb(223, 192, 22)"}} />
+
+            </div>
+            
+            
+
+        </div>
+        <h5>
+          Ayutthaya Floating Market:
+            </h5>
+           <div className="container">
+            
+            <div className="first_paragraph d-flex">
+            <p>
+            Este mercadillo flotante se encuentra en un gran estanque a las afueras de la isla fluvial de Ayutthaya, al este del centro de la ciudad. 
+            Los botes a remo pasan por los canales que forman las más de 200 tiendas instaladas en este lugar, dando la posibilidad a los viajeros por solo 20 bahts, de dar un paseo con barca y gozar de una visita totalmente diferente a las otras excursiones que hay por la ciudad
+            </p>
+            <img 
+            src="https://cdn.getyourguide.com/img/tour/5e4e02a389b97.jpeg/146.jpg" alt=" Ayuttayah floating market"
+            style={{width:"20%", border:"2px solid rgb(223, 192, 22)"}} />
+
+            </div>
+            
+            
+
+        </div>
+        </div>
+            
+            
 
         </div>
        

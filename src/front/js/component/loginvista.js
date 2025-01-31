@@ -22,7 +22,7 @@ export const LoginVista = () => {
             console.error("debe ingresar e,ail y contraseña");
             return;
         }
-        const succes =  actions.loginUser({ email, password }, navigate);
+        const succes = actions.loginUser({ email, password }, navigate);
         if (succes) {
             console.log("Sesion iniciada, redirigiendo.....");
             navigate("/perfil");
@@ -31,39 +31,40 @@ export const LoginVista = () => {
         }
     };
 
-return (
-    <div className="bodylogin">
-        <h1 className="titlelogin" mt-5>Iniciar Sesión</h1>
-        <form onSubmit={handleLogin}>
-            <div>
-                <label>Email  </label>
-                <input
-                    type="email"
-                    name="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+    return (
+        <div className="bodygeneral">
+            <div className="bodylogin">
+                <h1 className="titlelogin">Iniciar Sesión</h1>
+                <form onSubmit={handleLogin}>
+                    <div>
+                        <label>Email  </label>
+                        <input
+                            type="email"
+                            name="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
 
-                />
-            </div>
-            <div>
-                <label>Contraseña </label>
-                <input
-                    type="password"
-                    name="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
+                    <div>
+                        <label>Contraseña </label>
+                        <input
+                            type="password"
+                            name="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
 
-                />
+                        />
+                    </div>
+                </form>
+                <button type="submit">Iniciar Sesión</button>
+                <div>
+                    <Link to="/recuperar-contrasena">¿Olvidaste tu Contraseña?</Link>
+                </div>
+
+
             </div>
-        </form>
-        <button type="submit">Iniciar Sesión</button>
-        <div>
-            <Link to="recuperar-contrasena">¿Olvidaste tu Contraseña?</Link>
         </div>
-
-
-
-    </div>
-);
+    );
 };
 

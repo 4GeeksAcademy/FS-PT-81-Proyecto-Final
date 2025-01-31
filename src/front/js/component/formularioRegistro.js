@@ -40,9 +40,9 @@ export const Registro = () => {
         }
      };
     return (
-        <div>
+        <div className="bodygeneral">
             <div className="bodyregister mt-5">
-                <h2 className="titleregister mt-5">Registrate</h2>
+                <h1 className="titleregister mt-5">Registrate</h1>
                 <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                         <label className="labelname">Name</label>
@@ -77,7 +77,7 @@ export const Registro = () => {
                             required
                         />
                     </div>
-                    <button className="butonregister" type="submit">Registrarse</button>
+                    <button className="butonregister" type="submit">Registrate</button>
                 </form>
               {store.error && <p className="mensaje de error">{store.error}</p>} 
             </div >

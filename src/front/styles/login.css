@@ -1,29 +1,40 @@
-
-.bodylogin{
+body, html{
+    height: 100%;
     margin: 0;
-    width: 100%;
-    font-family: Arial, sans-serif;
-    background-image: url(https://bpic.588ku.com/back_origin_min_pic/21/08/19/a25663853080894c5e95af224dc98487.jpg!/fw/750/quality/99/unsharp/true/compress/true);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top;
-    background-color:#f5f5f5;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    padding: 50px;
+    padding: 0;
 
 }
+.bodylogin{
+    margin-left: auto;
+    margin-right: 50px;
+    width: 50%;
+    max-width: 400px;
+    font-family: Arial, sans-serif;
+    background-color: #18A2B8;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
 
+}
+.bodygeneral{
+    height: 100vh;
+    background-image: url(https://imgs.search.brave.com/F2PY3KHdGJkTy0rof43OnQlZfS6iHyqiBzGfzvKRCVY/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/YmxvZ2RlbGZvdG9n/cmFmby5jb20vd3At/Y29udGVudC91cGxv/YWRzLzIwMjAvMDkv/c2FoYXJhLndlYnA);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+}
 .titlelogin{
-    margin-top: 40px;
     font-size: 2.5rem;
-    color: #e7eff8;
-    margin-bottom: 1.5rem;
+    color:white;
+    margin-top: 5rem;
     font-weight: bold;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     display: flex;
     justify-content: start;
 }
+
 
 form{
     background-color: rgba(255, 255, 255, 0.8);

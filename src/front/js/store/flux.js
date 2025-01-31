@@ -2,7 +2,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 	return {
 		store: {
-			backendUrl: process.env.REACT_APP_BACKEND_URL || "https://localhost:3001",
 			users: [],
 			error: null,
 			posts: [],
@@ -18,7 +17,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getUsers: async () => {
 				try {
 					console.log("obteniendo usuarios...");
-					const response = await fetch(`${backendUrl}/api/users`);
+					const response = await fetch(`${process.env.BACKEND_URL}/api/users`);
 					if (!response.ok) throw new Error('Error al obtener usuarios');
 					const data = await response.json();
 					console.log("usuarios obtenidos", data);
@@ -31,17 +30,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 			createUser: async (userData, navigate) => {
 				try {
 					console.log("enviando datos a /api/register:", userData);
-					const { backendUrl } = getStore();
-					console.log("uSANDO BACKENDURL EN CREATEuSE:",backendUrl);
-					console.log("enviando datos a:",`${backendUrl}/api/register`);
+					console.log("enviando datos a:",`${process.env.BACKEND_URL}/api/register`);
 
-					if(!backendUrl){
-						throw new Error("backenurl no esta definido.verifica tu env");
+					if(process.env.BACKEND_URL){
+						throw new Error("backend url no esta definido");
 						
 					}
 
 
-					const response = await fetch(`${backendUrl}/api/register`, {
+					const response = await fetch(`${process.env.BACKEND_URL}/api/register`, {
 						method: "POST",
 						headers: {
 							"Content-Type": "application/json"
@@ -70,7 +67,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			deleteUser: async (id, navigate) => {
 				try {
 					console.log(`Eliminando usuario con iD:${id}`);
-					const response = await fetch(`${backendUrl}api/users/${id}`, {
+					const response = await fetch(`${process.env.BACKEND_URL}api/users/${id}`, {
 						method: 'DELETE',
 						headers: {
 							"Authorization": `Bearer ${localStorage.getItem("token")}`,
@@ -93,10 +90,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			loginUser: async (userData, navigate) => {
-				const { email, password } = credentials;
 				try {
+					const BACKEND_URL = getStore().BACKEND_URL;
 					console.log("Iniciando sesion con:", userData);
-					const response = await fetch(`${backendUrl}/api/login`, {
+					const response = await fetch(`${process.env.BACKEND_URL}/api/login`, {
 						method: "POST",
 						headers: {
 							"Content-Type": "application/json"
@@ -111,9 +108,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("Iniciando sesion correcta:", data);
 
 					localStorage.setItem("token", data.token);
+					localStorage.setItem("user", JSON.stringify(data.user));
+
 					setStore({ currentUser: data.user, token: data.token });
 
-					if (navigate) navigate("/vistaPerfil")
+					if (navigate) navigate("/")
 				} catch (error) {
 					console.error("error inicio de sesion:", error)
 					setStore({ error: error.message });

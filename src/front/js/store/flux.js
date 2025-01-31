@@ -30,15 +30,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 			createUser: async (userData, navigate) => {
 				try {
 					console.log("enviando datos a /api/register:", userData);
-					console.log("enviando datos a:",`${process.env.BACKEND_URL}/api/register`);
+					console.log("enviando datos a:",`${process.env.BACKEND_URL}api/register`);
 
-					if(process.env.BACKEND_URL){
+					/*if(!process.env.BACKEND_URL){
 						throw new Error("backend url no esta definido");
 						
-					}
+					}*/
 
 
-					const response = await fetch(`${process.env.BACKEND_URL}/api/register`, {
+					const response = await fetch(`${process.env.BACKEND_URL}api/register`, {
 						method: "POST",
 						headers: {
 							"Content-Type": "application/json"
@@ -124,7 +124,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				localStorage.removeItem("token");
 				setStore({ currentUser: null, token: null });
 			}
-		}
+		},
 	};
 };
 export default getState;

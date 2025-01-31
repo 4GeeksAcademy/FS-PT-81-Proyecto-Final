@@ -10,6 +10,7 @@ from api.models import db
 from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
+from api.mail.mail_config import mail
 
 # from models import Person
 
@@ -17,6 +18,19 @@ ENV = "development" if os.getenv("FLASK_DEBUG") == "1" else "production"
 static_file_dir = os.path.join(os.path.dirname(
     os.path.realpath(__file__)), '../public/')
 app = Flask(__name__)
+
+app.config['MAIL_SERVER']= 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = "seiglietestemail@gmail.com"
+# os.getenv("EMAIL_USERNAME")
+app.config['MAIL_PASSWORD'] = "ukwkihtitowiiztj"
+# os.getenv("EMAIL_PASSWORD")
+app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_DEFAULT_SENDER'] = ('TripGeeks', 'info@tripgeeks.com')
+
+mail.init_app(app)  # Inicializa mail con la aplicación
+
+
 app.url_map.strict_slashes = False
 
 # database condiguration

@@ -5,6 +5,9 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, Users, Favourites,Posts, Comments
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
+from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required, verify_jwt_in_request
+import random
+from api.mail.mailer import send_email
 api = Blueprint('api', __name__)
 
 # Allow CORS requests to this API
@@ -139,3 +142,37 @@ def delete_favourite():
     db.session.delete(favourite)
     db.session.commit()
     return jsonify({'message': 'Favourite deleted successfully'}), 200
+
+
+
+#random password generator
+def password_generator():
+    
+    #list of characters
+    chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUV1234567890!@#_"
+    #variable to store the password
+    password = ""
+    #loop to generate password, 8 is the ammount of characters in the password, can be change to anything you want
+    for c in range(8):
+        password += random.choice(chars)
+    return password
+
+
+
+
+@api.route('/reset_password', methods=['POST'])
+def reset_password():
+    data = request.get_json()
+    email = data.get('email')
+    user = Users.query.filter_by(email=email).first()
+    if not user:
+        return jsonify({"msg": "Restablecimiento erróneo"}), 400
+    password = password_generator()
+    
+    user.password = password
+    # user.password = generate_password_hash(password)
+    db.session.commit()
+    send_email(email, password)
+    return jsonify({"msg": "Contraseña nueva generada"})
+
+    

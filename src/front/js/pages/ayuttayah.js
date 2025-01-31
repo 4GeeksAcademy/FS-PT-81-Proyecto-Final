@@ -2,6 +2,7 @@ import React, {useState, useContext} from "react";
 import { useEffect } from "react";
 import { Context } from "../store/appContext";
 import { Weather } from "../component/weather.jsx";
+import {CommentBox} from "../component/comment.jsx";
 import '../../styles/destinos_ciudades.css';
 
 export const Ayuttayah =() => {
@@ -62,7 +63,7 @@ return(
         </h4>
         <div className="list">
             <ul>
-                <li>Puntos de interés</li>
+                
                 <li onClick={toggleWeather}
                 style={{cursor:"pointer"}}>
                     Metereología
@@ -79,8 +80,27 @@ return(
                 </li>
             </ul>
             <h3>
-                ¿Que no puedes perderte de Essaouira?
+                ¿Que no puedes perderte de Ayuttayah?
             </h3>
+            <p>
+            Declarada Patrimonio de la Humanidad, la Ciudad Antigua de Ayutthaya o Reino de Siam, fue fundada por el Rey U-Thong en el año 1350 y se convirtió, durante prácticamente tres siglos, en uno de los emplazamientos más importantes del país además de uno de los lugares más sagrados para el budismo.
+            <br/>
+            Te contamos lo imprescindible de Ayuttayah:
+            </p>
+            <h5>
+              Wath Mahathat:
+            </h5>
+           <div className="container">
+            <div className="first_paragraph d-flex">
+            <p>
+            Este es sin lugar a dudas el templo más famoso de Ayutthaya y por lo tanto, una de las cosas que hacer en Ayutthaya que no puedes perderte. Conocido por ser el templo en el que puedes ver la cabeza de Buda entre las raíces de un árbol, este templo podríamos decir que está prácticamente en ruinas ya que resultó uno de los más afectados durante la invasión birmana, que destrozaron gran parte de las figuras
+
+            </p>
+            <img 
+            src="https://www.viajeroscallejeros.com/wp-content/uploads/2019/02/buda-arbol-wat-mahatat.jpg" alt="Wat Mahatgat"
+            style={{width:"20%"}} />
+
+            </div>
 
         </div>
        
@@ -91,6 +111,10 @@ return(
         </div>
         )}
       </div>
+      <div className="box-comment container">
+              < CommentBox />
+            </div>
+    </div>
     </div>
 );
 };

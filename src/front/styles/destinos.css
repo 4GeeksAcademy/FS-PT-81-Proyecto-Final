@@ -398,3 +398,24 @@
         margin-top:-8px;
     }
 }
+
+/* Diseño cuadro comentarios*/
+.container .comment-box{
+  
+
+    margin-bottom:500px;
+}
+.comment{
+    border:2px solid #00c4cc;
+   
+   
+}
+
+.send-comment{
+    background-color:#00c4cc;
+    border-radius:15%;
+    border:2px solid #03e7f7;
+    font-weight: bold;
+    color:white;
+  
+}

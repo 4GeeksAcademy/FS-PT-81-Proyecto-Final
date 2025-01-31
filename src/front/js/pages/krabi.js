@@ -2,6 +2,7 @@ import React, {useState, useContext} from "react";
 import { useEffect } from "react";
 import { Context } from "../store/appContext";
 import { Weather } from "../component/weather.jsx";
+import {CommentBox} from "../component/comment.jsx";
 import '../../styles/destinos_ciudades.css';
 
     export const Krabi =() => {
@@ -82,6 +83,7 @@ import '../../styles/destinos_ciudades.css';
 
             </div>
           
+          
                 {showWeather &&  store.weather && (
                     <div className= "weather-container">
                         {showWeather && <Weather city = "Krabi" />}
@@ -89,6 +91,9 @@ import '../../styles/destinos_ciudades.css';
             </div>
             )}
           </div>
+          <div className="box-comment container">
+              < CommentBox />
+            </div>
         </div>
     );
     };

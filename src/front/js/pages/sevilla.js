@@ -2,6 +2,7 @@ import React, { useState , useContext} from "react";
 import { useEffect } from "react";
 import { Context } from "../store/appContext.js";
 import { Weather } from "../component/weather.jsx";
+import {CommentBox} from "../component/comment.jsx";
 import '../../styles/destinos_ciudades.css';
 
 export const Sevilla = () => {
@@ -206,6 +207,9 @@ export const Sevilla = () => {
           </div>
         )}
       </div>
+      <div className="box-comment container">
+              < CommentBox />
+            </div>
     </div>
   );
 };

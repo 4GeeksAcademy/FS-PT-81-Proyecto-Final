@@ -2,6 +2,7 @@ import React, {useState, useContext} from "react";
 import { useEffect } from "react";
 import { Context } from "../store/appContext";
 import { Weather } from "../component/weather.jsx";
+import {CommentBox} from "../component/comment.jsx";
 import '../../styles/destinos_ciudades.css';
 
 export const Barcelona =() => {
@@ -72,7 +73,7 @@ return(
                 <li>
                   <a
                   href={barcelonaDestino?.omsLink}
-                  type="_blank"
+                  target="_blank"
                   rel="noopener noreferrer">
                     <i className="fa-regular fa-map" />
                   </a>
@@ -92,6 +93,9 @@ return(
         </div>
         )}
       </div>
+      <div className="box-comment container">
+              < CommentBox />
+            </div>
     </div>
 );
 };

@@ -42,6 +42,7 @@
 .navbar .auth-container {
         display: flex;
         align-items: center;
+        text-decoration:none;
         gap: 15px;
         position: absolute; 
         top: 10px;          
@@ -139,16 +140,20 @@
   /* Footer*/
   footer {
     background-color: #00c4cc; 
+    position:fixed;
+    bottom:0px;
+    height:30px;
     color: white;
     width:100%;
     text-align:center;
+ 
    
-    margin-top:auto;
     
   }
 
 
   body{
+    position:relative;
     display:flex;
     flex-direction:column;
     min-height:100vh;

@@ -10,20 +10,15 @@ export const PerfilUsuario = () => {
     const navigate = useNavigate();
     const { store, actions } = useContext(Context);
     useEffect(() => {
-        if(store.currentUser){
-            SetUser(store.currentUser);
-        }else{
-            const salvaUser = localStorage.getItem("user");
-            if (salvaUser) SetUser (JSON.parse(salvaUser));
-        }
-    }, [store.currentUser]);
+     !localStorage.getItem("token") && navigate("/") 
+    }, []);
 
     return (
         <div className="perfil-container">
-            { user ? (
+            { store.user ? (
                 <>
                <h1 className="bienbenida">
-                            Bienvenido, {user.username}
+                            Bienvenido, {store.user?.username}
                         </h1>
                         <p className="exploraPerfil">Explora los puntos de interés y tus destinos favoritos</p>
                     </>

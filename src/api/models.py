@@ -10,21 +10,17 @@ class Users(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(250), nullable=False)
     #profile_picture = db.Column(db.String(50), nullable=True)
-
     comments = db.relationship("Comments", backref='user', lazy=True)
     posts = db.relationship("Posts", backref='user', lazy=True)
     favourites = db.relationship("Favourites", backref='user', lazy=True)
-
     def __repr__(self):
         return f'<User {self.email}>'
-
-def serialize(self):
-    return {
+    def serialize(self):
+        return {
         "id": self.id,
         "username": self.username,
         "email": self.email,
     }
-
 class Posts(db.Model):
     __tablename__ = 'posts'
 

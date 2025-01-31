@@ -57,7 +57,7 @@ export const LoginVista = () => {
                         />
                     </div>
                 </form>
-                <button type="submit">Iniciar Sesión</button>
+                <button onClick={handleLogin} type="submit">Iniciar Sesión</button>
                 <div>
                     <Link to="/recuperar-contrasena">¿Olvidaste tu Contraseña?</Link>
                 </div>

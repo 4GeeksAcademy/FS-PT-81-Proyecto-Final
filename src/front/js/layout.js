@@ -2,19 +2,27 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import { BackendURL } from "./component/backendURL";
-
 import { Home } from "./pages/home";
-
 import injectContext from "./store/appContext";
-
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Europa } from "./pages/europe";
+import { Sevilla } from "./pages/sevilla";
+import { Barcelona } from "./pages/barcelona";
+import { Madrid } from "./pages/madrid";
+import {Marrakech} from "./pages/marrakech";
+import { Essaouira } from "./pages/essaouira";
+import { Merzouga } from "./pages/merzouga";
+import {Krabi} from "./pages/krabi";
+import { Bangkok } from "./pages/bangkok";
+import { Ayuttayah } from "./pages/ayuttayah";
 import { Asia } from "./pages/asia";
 import { Africa } from "./pages/africa";
+
 import { Registro} from "./component/formularioRegistro";
 import {LoginVista} from "./pages/loginvista";
 import { PerfilVista } from "./pages/vistaPerfil";
+import { QuienesSomos } from "./pages/quienesSomos.js";
 
 //create your first component
 const Layout = () => {
@@ -32,11 +40,21 @@ const Layout = () => {
                     <Routes>
                         <Route element={<Home />} path="/" />
                         <Route element={<Europa />} path="/europa" />
-                       <Route element={<Asia />} path="/asia" />
-                       <Route element={<Africa />} path="/africa" />
-                       <Route element = {<LoginVista />} path= "/login" />
-                       <Route element = {<Registro/>} path= "/Registro" />
-                       <Route element = {<PerfilVista/>} path= "/vistaPerfil" />
+                        <Route element={<Sevilla />} path="/sevilla" />
+                        <Route element = {<Barcelona />} path= "/barcelona"/>
+                        <Route element= {<Madrid />} path ="/madrid" />
+                        <Route element={<Africa />} path="/africa" />
+                        <Route element = {<Marrakech />} path ="/marrakech" />                      
+                        <Route element={<Essaouira />} path ="/essaouira" />
+                        <Route element={<Merzouga />} path ="/merzouga" />                       
+                        <Route element={<Asia />} path="/asia" />
+                        <Route element={<Krabi />} path="/krabi" />
+                        <Route element={<Bangkok />} path="/bangkok" />
+                        <Route element={<Ayuttayah />} path="/ayuttayah" />
+                       <Route element= {<QuienesSomos />} path ="/quienessomos" />
+                        <Route element = {<LoginVista />} path= "/login" />
+                        <Route element = {<Registro />} path= "/Registro" />
+                        <Route element = {<PerfilVista />} path= "/vistaPerfil" />
 
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>

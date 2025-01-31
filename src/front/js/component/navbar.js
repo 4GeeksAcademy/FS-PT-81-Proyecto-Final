@@ -1,14 +1,58 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import '../../styles/index.css';
 
+
+
 export const Navbar = () => {
+
+    const [navbarSearchTerm, setNavbarSearchTerm] = useState("");
+    const [offcanvasSearchTerm, setOffcanvasSearchTerm] = useState("")
+    const navigate =useNavigate();
+
+    const handleNavbarInputChange= (e) =>{
+        setNavbarSearchTerm(e.target.value);
+    };
+
+    const handleOffcanvasInputChange= (e) =>{
+        setOffcanvasSearchTerm(e.target.value);
+    }
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        const searchTerm = e.target.classList.contains("form-navbar")
+        ? navbarSearchTerm : offcanvasSearchTerm;
+
+        const routes = {
+            europa: "/europa",
+            asia: "/asia",
+            africa: "/africa",
+            sevilla: "/sevilla",
+            barcelona: "/barcelona",
+            madrid: "/madrid",
+            krabi: "/krabi",
+            bangkok: "/bangkok",
+            ayuttayah: "/ayuttayah",
+            marrakech: "/marrakech",
+            essaouira: "/essaouira",
+            merzouga: "/merzouga",
+          };
+
+          const lowerCaseTerm = searchTerm.toLowerCase();
+    if (routes[lowerCaseTerm]) {
+      navigate(routes[lowerCaseTerm]); // Navegar a la ruta correspondiente
+    } else {
+      alert("Destino no encontrado."); // Mostrar mensaje si no se encuentra
+    }
+  };
+    
     return (
-        <nav className="navbar navbar-dark fixed-top" style={{ backgroundColor: "#32C8D9" }}>
+        <nav className="navbar navbar-dark navbar-expanded-lg fixed-top" style={{ backgroundColor: "#32C8D9" }}>
             <div className="container-fluid d-flex">
 
                 <button
-                    className="navbar-toggler d-flex"
+                    className="menu navbar-toggler d-flex"
                     type="button"
                     data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasDarkNavbar"
@@ -19,22 +63,29 @@ export const Navbar = () => {
                     </span>
                 </button>
                 <div
-                    className="textNavbar d-flex justify-content-center align-items-center text-align-center"
-                    style={{ margin: "auto" }}>
-                    "TripGeeks: Conecta con el mundo a través de tus viajes"
+                    className="text-Navbar d-none d-lg-flex">
+                    "TripGeeks: Conecta con el mundo a través de tus viajes" 
                 </div>
-                <div>
-                    <Link to = "/login">
+                <div className="auth-container">
+                    <Link to="/login">
                         <span className="textlogin">Iniciar Sesión</span>
-                        </Link>
-                        <Link to="/Registro">
+                    </Link>
+                    <Link to="/Registro">
                         <span className="textlogin">Registrarse</span>
-                        </Link>
-                    <input
-                        type="text"
-                        style={{ borderRadius: "50px", border: "0px", height: "40px" }}
-                        placeholder="    ¡Haz tu búsqueda!   "
-                    />
+                    </Link>
+                    <form className="form form-navbar" 
+                    onSubmit={handleSearch}>
+                            <input className=" label d-none d-lg-flex"
+                                type="text"
+                                placeholder="Busca tu destino"
+                                value={navbarSearchTerm}
+                                onChange={handleNavbarInputChange}/>
+                            
+                            <button className="search-button d-none d-lg-flex"
+                                type="submit">
+                                    <i className="fa-solid fa-magnifying-glass"/>
+                                    </button>
+                        </form>
                 </div>
                 <div className="offcanvas offcanvas-start text-bg-dark" tabIndex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
                     <div className="offcanvas-header">
@@ -51,9 +102,7 @@ export const Navbar = () => {
                                     <a className="nav-link active" style={{ color: "black" }} aria-current="page">Inicio</a>
                                 </li>
                             </Link>
-                            <li className="nav-item">
-                                <a className="register" style={{ color: "black" }} href="#">Registrarse</a>
-                            </li>
+                          
                             <li className="nav-item dropdown">
                                 <a
                                     className="nav-link dropdown-toggle"
@@ -74,7 +123,7 @@ export const Navbar = () => {
                                             role="button">
                                             Destinos
                                         </a>
-                                        <ul className="dropdown-menu" aria-labelledby="destinosDropdown">
+                                        <ul className=" destinos-paises dropdown-menu" aria-labelledby="destinosDropdown">
                                               <Link to="/europa" style={{textDecoration:"none"}}>                                            
                                               <li><span className="dropdown-item" href="#">Europa</span></li>
                                               </Link>
@@ -86,7 +135,14 @@ export const Navbar = () => {
                                             </Link>
                                         </ul>
                                     </li>
-                                    <li><a className="dropdown-item" href="#">¿Quiénes somos?</a></li>
+                                    <Link to="/quienessomos"  style={{textDecoration:"none"}} >
+                                    <li>
+                                        <a className="dropdown-item" href="#" 
+                                        >
+                                            ¿Quiénes somos?
+                                            </a>
+                                        </li>
+                                        </Link>
                                     <li>
                                         <hr className="dropdown-divider" />
                                     </li>
@@ -94,9 +150,19 @@ export const Navbar = () => {
                                 </ul>
                             </li>
                         </ul>
-                        <form className="d-flex mt-3" role="search">
-                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                            <button className="btn btn-info" type="submit">Search</button>
+                        <form className=" search-label d-flex mt-3" 
+                            onSubmit={handleSearch}>
+                            <input className="form-control me-2" 
+                            type="text" 
+                            placeholder="Busca tu destino" 
+                            aria-label="Search" 
+                            value={offcanvasSearchTerm}
+                            onChange={handleOffcanvasInputChange}/>
+                            <button className="btn btn-info" 
+                            type="submit"
+                            style={{fontWeight:"bold"}}>
+                                Buscar
+                                </button>
                         </form>
                     </div>
                 </div>

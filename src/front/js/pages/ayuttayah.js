@@ -54,10 +54,14 @@ return(
             </ul>
             <div className="container descripcion_ciudades">
             <h3>
-                Qué no puedes perderte de Ayuttayah
+                Qué no puedes perderte de Ayutthaya
             </h3>
             <p>
-            Declarada Patrimonio de la Humanidad, la Ciudad Antigua de Ayutthaya o Reino de Siam, fue fundada por el Rey U-Thong en el año 1350 y se convirtió, durante prácticamente tres siglos, en uno de los emplazamientos más importantes del país además de uno de los lugares más sagrados para el budismo.
+            Ayutthaya, la antigua capital de Tailandia, es un impresionante parque histórico repleto de ruinas de templos 
+            y palacios que narran siglos de esplendor. Declarada Patrimonio de la Humanidad, sus majestuosos templos, como Wat Mahathat y
+             Wat Chaiwatthanaram, transportan a los visitantes a una época gloriosa. Perfecto para explorar en bicicleta, el ambiente tranquilo 
+             y su rica historia hacen de Ayutthaya un lugar mágico. Este destino es un testimonio del legado cultural tailandés, 
+             ideal para quienes buscan una experiencia enriquecedora y llena de belleza.
             <br/>
             Te contamos lo imprescindible de Ayuttayah:
             </p>

@@ -8,6 +8,8 @@ from flask_cors import CORS
 from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required
 from werkzeug.security import generate_password_hash, check_password_hash
 api = Blueprint('api', __name__)
+import cloudinary
+import cloudinary.uploader
 
 # Allow CORS requests to this API
 CORS(api)
@@ -202,3 +204,14 @@ def delete_favourite(id):
     db.session.commit()
     
     return jsonify({'message': f'Favourite with id={id} deleted'}), 200
+
+
+# ----------------- CLOUDINARY ----------------- #
+@api.route('/upload', methods=['POST'])
+def upload():
+    file_to_upload = request.files['file']
+    if file_to_upload:
+        upload = cloudinary.uploader.upload(file_to_upload)
+        print('-------------la url donde esta la imagen-------------', upload)
+        return jsonify(upload)
+    return jsonify({"error": "No file uploaded"}), 400

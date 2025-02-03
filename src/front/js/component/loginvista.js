@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import '../../styles/login.css'
 
+
 export const LoginVista = () => {
     const { store, actions, } = useContext(Context);
     const [password, setPassword] = useState("");
@@ -12,17 +13,17 @@ export const LoginVista = () => {
 
     useEffect(() => {
         if (store.currentUser) {
-            navigate("/Perfil");
+            navigate("/perfil");
         }
     }, [store.currentUser, navigate]);
 
-    const handleLogin = (e) => {
+    const handleLogin =  async (e) => {
         e.preventDefault();
         if (!email || !password) {
-            console.error("debe ingresar e,ail y contraseña");
+            console.error("debe ingresar email y contraseña");
             return;
         }
-        const succes = actions.loginUser({ email, password }, navigate);
+        const succes =  actions.loginUser(email, password );
         if (succes) {
             console.log("Sesion iniciada, redirigiendo.....");
             navigate("/perfil");

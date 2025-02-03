@@ -7,7 +7,7 @@ export const Asia = () => {
     const { store } = useContext(Context); // Consumir datos del store
     const navigate = useNavigate();
 
-    // Filtrar destinos que pertenezcan a la región de Asia
+    
     const destinosAsia = store.destinos.filter(destino => destino.region === "Asia");
 
     return (

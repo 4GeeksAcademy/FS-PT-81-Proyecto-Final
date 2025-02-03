@@ -5,7 +5,7 @@ export const Weather = ({ city }) => {
   const { store, actions } = useContext(Context);
 
   useEffect(() => {
-    if (city) actions.getWeather(city); // Asegúrate de que city tenga valor
+    if (city) actions.getWeather(city); 
   }, [city]);
 
   const weather = store.weather;

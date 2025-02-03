@@ -2,7 +2,7 @@
     background-image: url('https://i0.wp.com/afrofeminas.com/wp-content/uploads/2023/11/Most_visited_countries_in_Africa.jpg?ssl=1');
     background-size: cover;
     background-position: center;
-    height: 1000px; /* Ajusta la altura al 100% de la ventana */
+    height: 1000px; 
     width: 100%;
     display: flex;
     justify-content: center;
@@ -19,9 +19,9 @@
     font-weight: bolder;
     text-decoration: none;
     gap: 60px;
-    margin-left: -500px; /* Centra el contenido */
+    margin-left: -500px; 
     margin-bottom: 750px;
-    flex-wrap: wrap; /* Permite que los elementos pasen a otra línea si no hay espacio */
+    flex-wrap: wrap; 
 }
 
 .continents span {

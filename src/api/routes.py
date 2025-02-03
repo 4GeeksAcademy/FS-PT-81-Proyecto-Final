@@ -77,7 +77,7 @@ def login():
     
     token = create_access_token(identity=str(exist.id))
     
-    return jsonify({"message": "Inicio de sesión exitoso", "token": token}), 200
+    return jsonify({"user": exist.username, "token": token}), 200
 
 # ----------------- POSTS -------------------- #
 @api.route('/posts', methods=['GET'])
@@ -214,10 +214,18 @@ def delete_favourite(id):
 
 # ----------------- CLOUDINARY ----------------- #
 @api.route('/upload', methods=['POST'])
+@jwt_required()
 def upload():
+    user_id = get_jwt_identity()
+    title = request.form.get('title')
+    body = request.form.get('body')
     file_to_upload = request.files['file']
     if file_to_upload:
         upload = cloudinary.uploader.upload(file_to_upload)
-        print('-------------la url donde esta la imagen-------------', upload)
-        return jsonify(upload)
-    return jsonify({"error": "No file uploaded"}), 400
+        image_url = upload.get("url")
+    post = Posts (user_id = user_id, title =title, body= body, image= image_url)
+    db.session.add(post)
+    db.session.commit()
+    return jsonify({"message": "Post created successfully", "post": post.serialize()}), 201
+
+    

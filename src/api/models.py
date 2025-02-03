@@ -30,7 +30,6 @@ class Posts(db.Model):
     title = db.Column(db.String(80), nullable=False)
     body = db.Column(db.String(), nullable=False)
     image = db.Column(db.String(800), nullable=False)
-    #created_at = db.Column(db.String(50), nullable=False)
 
     comments = db.relationship("Comments", backref='post', lazy=True)
     favourites = db.relationship("Favourites", backref='post', lazy=True)
@@ -45,8 +44,6 @@ class Posts(db.Model):
             "title": self.title,
             "body": self.body,
             "image": self.image,
-            "created_at": self.created_at,
-            "category_id": self.category_id
         }
     
 class Comments(db.Model):

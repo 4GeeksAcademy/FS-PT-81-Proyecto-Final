@@ -20,7 +20,7 @@ export const PerfilUsuario = ({ user, setUser }) => {
         !localStorage.getItem("token") && navigate("/");
         console.log("usuario en localStorage:", localStorage.getItem("user"));
     }, []);
-    const handleSubmit = async (e) => {
+    /*/const handleSubmit = async (e) => {
         e.preventDefault();
         actions.createPost(title, description, uploadedUrl, favorites);
         setTitle("");
@@ -28,15 +28,12 @@ export const PerfilUsuario = ({ user, setUser }) => {
         setUploadedUrl("");
         setFavorites(false);
 
-    };
+    };/*/
 
     return (
         <div className="perfil-container">
             {store.user ? (
                 <>
-                    <h1 className="bienbenida">
-                        Bienvenido, {store.user?.username}
-                    </h1>
                     <div id=" carouselExampleCaptions" className=" jumbotron carousel slide">
                         <div className="carousel-indicators">
                             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
@@ -77,12 +74,12 @@ export const PerfilUsuario = ({ user, setUser }) => {
                     </div>
                     <div className="formulario-post">
                         <h2>Nuevo Post</h2>
-                        <form onSubmit={handleSubmit}>
+                        <div>
                             <input
                                 type="text"
-                                placeholder="Título
-                            value={title}"
-                                onChange={(e) => setDescription(e.target.value)}
+                                placeholder="Título"
+                                value= {title}
+                                onChange={(e) => setTitle(e.target.value)}
                                 required
                             />
                             <textarea
@@ -97,10 +94,10 @@ export const PerfilUsuario = ({ user, setUser }) => {
                                     onChange={() => setFavorites(!favorites)}
                                 />
                             </label>
-                            <Uploader setUploadedUrl={setUploadedUrl} />
+                            <Uploader body={description} title={title} setUploadedUrl={setUploadedUrl} />
 
-                            <button type="submit">Publicar</button>
-                        </form>
+                            {/* <button type="submit">Publicar</button> */}
+                        </div>
                         <Logout />
                     </div>
                 </>

@@ -347,6 +347,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			loginUser: async (userData) => {
 				try {
+					console.log("datos des de login")
 					const response = await fetch(`${process.env.BACKEND_URL}/api/login`, {
 						method: "POST",
 						headers: {
@@ -360,10 +361,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 						throw new Error(data.message || "Error iniciando sesion");
 						
 					}
+					if (!data.token || !data.user){
+						throw new Error("no se recibe token o usuario en response");
+						
+					}
 					console.log("Iniciando sesion correcta:", data);
 
 					localStorage.setItem("token", data.token);
-					localStorage.setItem("user", JSON.stringify(data.user));
+					localStorage.setItem("user", JSON.stringify (data.user));
 
 					setStore({ currentUser: data.user, token: data.token });
 					
@@ -404,7 +409,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							"Content-Type": "application/json",
 							Authorization: `Bearer ${token}`,
 						},
-						body: JSON.stringify({ title, body, image}),
+						body: JSON.stringify({ title: title, body: body, image: image}),
 					});
 					const data = await response.json();
 					if (!response.ok) throw new Error("Error creando post");

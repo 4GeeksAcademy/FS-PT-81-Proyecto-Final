@@ -31,9 +31,7 @@ export const Registro = () => {
             if (succes) {
                 console.log("registro valido, redirigiendo....");
                 navigate("/login");
-            } else {
-                console.error("Error al regsitrar el usuario", store.error);
-            }
+            } 
         } catch (error) {
             console.error("Error al registrar el usuario", error)
             

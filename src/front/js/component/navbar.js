@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import '../../styles/index.css';
@@ -6,23 +7,27 @@ import '../../styles/index.css';
 
 
 export const Navbar = () => {
+    const {store} = useContext(Context)
 
     const [navbarSearchTerm, setNavbarSearchTerm] = useState("");
     const [offcanvasSearchTerm, setOffcanvasSearchTerm] = useState("")
-    const navigate =useNavigate();
+    const navigate = useNavigate();
+    const token = localStorage.getItem("token");
+    const userName = localStorage.getItem("user");
 
-    const handleNavbarInputChange= (e) =>{
+    const handleNavbarInputChange = (e) => {
         setNavbarSearchTerm(e.target.value);
     };
 
-    const handleOffcanvasInputChange= (e) =>{
+    
+    const handleOffcanvasInputChange = (e) => {
         setOffcanvasSearchTerm(e.target.value);
     }
 
     const handleSearch = (e) => {
         e.preventDefault();
         const searchTerm = e.target.classList.contains("form-navbar")
-        ? navbarSearchTerm : offcanvasSearchTerm;
+            ? navbarSearchTerm : offcanvasSearchTerm;
 
         const routes = {
             europa: "/europa",
@@ -37,16 +42,16 @@ export const Navbar = () => {
             marrakech: "/marrakech",
             essaouira: "/essaouira",
             merzouga: "/merzouga",
-          };
+        };
 
-          const lowerCaseTerm = searchTerm.toLowerCase();
-    if (routes[lowerCaseTerm]) {
-      navigate(routes[lowerCaseTerm]); // Navegar a la ruta correspondiente
-    } else {
-      alert("Destino no encontrado."); // Mostrar mensaje si no se encuentra
-    }
-  };
-    
+        const lowerCaseTerm = searchTerm.toLowerCase();
+        if (routes[lowerCaseTerm]) {
+            navigate(routes[lowerCaseTerm]); // Navegar a la ruta correspondiente
+        } else {
+            alert("Destino no encontrado."); // Mostrar mensaje si no se encuentra
+        }
+    };
+
     return (
         <nav className="navbar navbar-dark navbar-expanded-lg fixed-top" style={{ backgroundColor: "#32C8D9" }}>
             <div className="container-fluid d-flex">
@@ -64,28 +69,33 @@ export const Navbar = () => {
                 </button>
                 <div
                     className="text-Navbar d-none d-lg-flex">
-                    "TripGeeks: Conecta con el mundo a través de tus viajes" 
+                    "TripGeeks: Conecta con el mundo a través de tus viajes"
                 </div>
                 <div className="auth-container">
+                    { token? 
+                    <p className="bienvenidoText"> Bienvenido, {userName}</p> :
+                    <div>
                     <Link to="/login">
                         <span className="textlogin">Iniciar Sesión</span>
                     </Link>
                     <Link to="/Registro">
                         <span className="textlogin">Registrarse</span>
                     </Link>
-                    <form className="form form-navbar" 
-                    onSubmit={handleSearch}>
-                            <input className=" label d-none d-lg-flex"
-                                type="text"
-                                placeholder="Busca tu destino"
-                                value={navbarSearchTerm}
-                                onChange={handleNavbarInputChange}/>
-                            
-                            <button className="search-button d-none d-lg-flex"
-                                type="submit">
-                                    <i className="fa-solid fa-magnifying-glass"/>
-                                    </button>
-                        </form>
+                    </div>
+                    }
+                    <form className="form form-navbar"
+                        onSubmit={handleSearch}>
+                        <input className=" label d-none d-lg-flex"
+                            type="text"
+                            placeholder="Busca tu destino"
+                            value={navbarSearchTerm}
+                            onChange={handleNavbarInputChange} />
+
+                        <button className="search-button d-none d-lg-flex"
+                            type="submit">
+                            <i className="fa-solid fa-magnifying-glass" />
+                        </button>
+                    </form>
                 </div>
                 <div className="offcanvas offcanvas-start text-bg-dark" tabIndex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
                     <div className="offcanvas-header">
@@ -97,9 +107,9 @@ export const Navbar = () => {
                     </div>
                     <div className="offcanvas-body">
                         <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-                                <li className="nav-item">
-                                    <Link to="/" style={{ textDecoration: "none" }} className="nav-link active" style={{ color: "black" }} aria-current="page">Inicio</Link>
-                                </li>
+                            <li className="nav-item">
+                                <Link to="/" style={{ textDecoration: "none", color: "black"  }} className="nav-link active"  aria-current="page">Inicio</Link>
+                            </li>
                             <li className="nav-item dropdown">
                                 <a
                                     className="nav-link dropdown-toggle"
@@ -121,25 +131,25 @@ export const Navbar = () => {
                                             Destinos
                                         </a>
                                         <ul className=" destinos-paises dropdown-menu" aria-labelledby="destinosDropdown">
-                                              <Link to="/europa" style={{textDecoration:"none"}}>                                            
-                                              <li><span className="dropdown-item" href="#">Europa</span></li>
-                                              </Link>
-                                              <Link to="/asia" style={{textDecoration:"none"}}>                                             
-                                            <li><span className="dropdown-item" href="#">Asia</span></li>
+                                            <Link to="/europa" style={{ textDecoration: "none" }}>
+                                                <li><span className="dropdown-item" href="#">Europa</span></li>
                                             </Link>
-                                            <Link to="/africa" style={{textDecoration:"none"}}>
-                                            <li><span className="dropdown-item" href="#">África</span></li>
+                                            <Link to="/asia" style={{ textDecoration: "none" }}>
+                                                <li><span className="dropdown-item" href="#">Asia</span></li>
+                                            </Link>
+                                            <Link to="/africa" style={{ textDecoration: "none" }}>
+                                                <li><span className="dropdown-item" href="#">África</span></li>
                                             </Link>
                                         </ul>
                                     </li>
-                                    <Link to="/quienessomos"  style={{textDecoration:"none"}} >
-                                    <li>
-                                        <a className="dropdown-item" href="#" 
-                                        >
-                                            ¿Quiénes somos?
+                                    <Link to="/quienessomos" style={{ textDecoration: "none" }} >
+                                        <li>
+                                            <a className="dropdown-item" href="#"
+                                            >
+                                                ¿Quiénes somos?
                                             </a>
                                         </li>
-                                        </Link>
+                                    </Link>
                                     <li>
                                         <hr className="dropdown-divider" />
                                     </li>
@@ -147,19 +157,19 @@ export const Navbar = () => {
                                 </ul>
                             </li>
                         </ul>
-                        <form className=" search-label d-flex mt-3" 
+                        <form className=" search-label d-flex mt-3"
                             onSubmit={handleSearch}>
-                            <input className="form-control me-2" 
-                            type="text" 
-                            placeholder="Busca tu destino" 
-                            aria-label="Search" 
-                            value={offcanvasSearchTerm}
-                            onChange={handleOffcanvasInputChange}/>
-                            <button className="btn btn-info" 
-                            type="submit"
-                            style={{fontWeight:"bold"}}>
+                            <input className="form-control me-2"
+                                type="text"
+                                placeholder="Busca tu destino"
+                                aria-label="Search"
+                                value={offcanvasSearchTerm}
+                                onChange={handleOffcanvasInputChange} />
+                            <button className="btn btn-info"
+                                type="submit"
+                                style={{ fontWeight: "bold" }}>
                                 Buscar
-                                </button>
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -170,15 +180,15 @@ export const Navbar = () => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  const dropdowns = document.querySelectorAll('.dropdown-submenu');
+    const dropdowns = document.querySelectorAll('.dropdown-submenu');
 
-  dropdowns.forEach(dropdown => {
-      dropdown.addEventListener('click', (e) => {
-          e.stopPropagation(); 
-          const submenu = dropdown.querySelector('.dropdown-menu');
-          if (submenu) {
-              submenu.classList.toggle('show'); 
-          } 
-      });
-  });
+    dropdowns.forEach(dropdown => {
+        dropdown.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const submenu = dropdown.querySelector('.dropdown-menu');
+            if (submenu) {
+                submenu.classList.toggle('show');
+            }
+        });
+    });
 });

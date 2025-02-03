@@ -23,7 +23,7 @@ export const LoginVista = () => {
             console.error("debe ingresar email y contraseña");
             return;
         }
-        const succes =  actions.loginUser(email, password );
+        const succes =  actions.loginUser({email, password });
         if (succes) {
             console.log("Sesion iniciada, redirigiendo.....");
             navigate("/perfil");

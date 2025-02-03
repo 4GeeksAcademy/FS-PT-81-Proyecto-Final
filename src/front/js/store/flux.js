@@ -393,7 +393,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 
 			},
-			createPost: async (title, description, imageUrl) => {
+			createPost: async (title, body, image) => {
 				try {
 					const token = localStorage.getItem("token");
 					if (!token) throw new Error("no hay token");
@@ -404,9 +404,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 							"Content-Type": "application/json",
 							Authorization: `Bearer ${token}`,
 						},
-						body: JSON.stringify({ title, description, img: imageUrl }),
+						body: JSON.stringify({ title, body, image}),
 					});
+					const data = await response.json();
 					if (!response.ok) throw new Error("Error creando post");
+					console.log(" post creado correctamente:", data);
+					setStore({  posts: [...getStore().posts, data.post] });
 					getActions().getPosts();
 
 

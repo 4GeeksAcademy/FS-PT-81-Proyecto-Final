@@ -94,11 +94,17 @@ def get_post(id):
 @jwt_required()
 def create_post():
     data = request.get_json()
+    user_id = get_jwt_identity()
     title = data.get('title')
     body = data.get('body')
     image = data.get('image')
     if not title or not body or not image:
         return jsonify({'message': 'Todos los campos son necesarios'}), 400
+    
+    new_post = Posts(title=title, body=body, img=image, user_id=user_id)
+    db.session.add(new_post)
+    db.session.commit()
+    
     return jsonify({'message': 'Post creado exitosamente'}), 201
 
 @api.route('/posts/<int:id>', methods=['DELETE'])

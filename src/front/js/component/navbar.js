@@ -97,12 +97,9 @@ export const Navbar = () => {
                     </div>
                     <div className="offcanvas-body">
                         <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-                            <Link to="/" style={{ textDecoration: "none" }}>
                                 <li className="nav-item">
-                                    <a className="nav-link active" style={{ color: "black" }} aria-current="page">Inicio</a>
+                                    <Link to="/" style={{ textDecoration: "none" }} className="nav-link active" style={{ color: "black" }} aria-current="page">Inicio</Link>
                                 </li>
-                            </Link>
-                          
                             <li className="nav-item dropdown">
                                 <a
                                     className="nav-link dropdown-toggle"

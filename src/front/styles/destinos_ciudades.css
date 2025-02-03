@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Margarine&display=swap');
 
-.city_sevilla{
-    position:absolute;
-    font-size:4rem;
-    margin-top:-100px;
-    margin-left:400px;
+.city_destinos{
+     font-size:4rem;
+    margin-top:10%;
+     font-weight:bold;
      display:flex;
      justify-content: center;
-     color:rgb(253, 249, 249);}
+     color:rgb(56, 108, 151);
+     transition:0.3;}
+
+
 
 .se_word:hover p,
 .vil_word:hover p,
@@ -17,10 +19,35 @@
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
+.se_word:hover p{
+  color:rgb(255, 255, 255);
+}
 .vil_word:hover p{
    color:red;
 }
+.la_word:hover p{
+  color:rgb(255, 255, 255);
+}
 
+.container-ciudades{
+  border-bottom:2px solid black;
+  margin-bottom:2%;
+ 
+}
+/*Cuadro del tiempo*/
+
+.weather-container{
+  display:flex;
+  width:30%;
+  border-radius:2%;
+  border:2px solid #2070b2;
+  justify-content:center;
+  margin:auto;
+  text-align:center;
+  font-weight:bold;
+  font-size:1rem;
+  margin-bottom:3%;
+}
 
 /* Elementos lista*/
 
@@ -34,18 +61,137 @@
     margin:20px;
 }
 
-/* CAROUSEL*/
 
-/* Asegura que el carrusel ocupe todo el ancho y tenga una altura fija */
-#carouselExampleRide {
-    width: 100%; /* Ocupa todo el ancho de la página */
-    height: 200px; /* Altura fija */
-    overflow: hidden; /* Evita el desbordamiento de imágenes */
-  }
   
-  .header-carousel-img {
-    object-fit: cover; /* Ajusta la imagen para llenar el contenedor sin deformarla */
-    width: 100%; /* Asegura que la imagen se expanda a todo el ancho */
-    height: 100%; /* La imagen toma toda la altura del carrusel */
+
+  /*Destinos turisticos*/
+
+  .descripción_ciudades{
+    display:flex;
+    text-align:center;
+    justify-content:center;
+
   }
+
+a{
+    text-decoration:none;
+    color:black;
+}
+  .destinos_turisticos {
+    display:flex;
+   justify-content:center;
+    padding-top:0.5%;
+    padding-bottom:0.5%;
+    font-weight:bold;
+    font-size:2rem;
   
+    
+    transition:0.3s;
+    
+   
+   
+    
+  }
+
+  .destinos_turisticos:hover{
+    color: #FFD700;;
+     transform: scale(1.2); 
+    text-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+    
+    
+  }
+
+  .imagenes_destinos_turisticos {
+    width: 50%;
+    margin-left: 25%;  
+    margin-bottom: 10%;
+    text-align: center; 
+    border-radius:5%;
+    border:2px solid #2070b2;
+    
+}
+
+
+/* Tablets */
+@media (max-width: 1024px) { 
+  .destinos_turisticos {
+      margin-left: 25%;
+      font-size: 1.8rem;
+      width: 50%;
+  }
+
+  .imagenes_destinos_turisticos {
+      width: 70%;
+      margin-left: 10%;
+  }
+}
+/* Móviles */
+@media (max-width: 768px) { 
+  .descripción_ciudades {
+      flex-direction: column; 
+      align-items: center;
+      text-align: center;
+  }
+
+  .city_destinos{
+    font-Size:3.5rem;
+    margin-top:30%;
+    text-align:center;
+
+  }
+
+  .destinos_turisticos {
+      width: 80%;
+      margin-left: 10%;
+      font-size: 1.5rem;
+      text-align: center;
+  }
+
+  .imagenes_destinos_turisticos{
+    display:flex;
+    justify-content:center;
+      width: 60%;
+    
+
+  }
+}
+
+@media (max-width: 480px) { /* Teléfonos pequeños */
+  .destinos_turisticos {
+      font-size: 1.2rem;
+      width: 90%;
+      margin-left: 5%;
+  }
+  .imagenes_destinos_turisticos{
+
+    width:80%;
+  }
+
+  
+}
+
+
+.mapa_icono_ciudad{
+
+  display:flex;
+  justify-content:center;
+  font-size:2rem;
+  transition:0.3s;
+}
+
+.mapa_icono_ciudad:hover{
+
+  color:#FFD700;
+  transform:scale(1.2)
+}
+
+.tiempo{
+  font-size:1.3rem;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+.tiempo:hover{
+  transform:scale(1.2);
+  color:#FFD700;
+}

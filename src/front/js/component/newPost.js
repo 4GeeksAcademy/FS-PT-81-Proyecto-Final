@@ -32,7 +32,7 @@ export const NewPost = () => {
         try {
             let imageUrl = "";
             if (image) {
-                imageUrl = await actions.uploadImg(image, title, body);
+                imageUrl = await actions.uploadImg({image, title, description: body});
             }
             await actions.createPost(title, body, imageUrl);
 
@@ -49,7 +49,7 @@ export const NewPost = () => {
     };
     return (
         <div className="newPost-container">
-            <h2 className="Crea tu Historia de Viaje">Registrate</h2>
+            <h2 className="HistoriaViaje">Crea tu Histora de Viaje</h2>
             <form onSubmit={handleSubmit}>
                 <label>Título:</label>
                 <input type="text"

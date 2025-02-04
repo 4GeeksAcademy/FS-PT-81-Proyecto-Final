@@ -72,34 +72,6 @@ export const PerfilUsuario = ({ user, setUser }) => {
                             <span className="visually-hidden">Next</span>
                         </button>
                     </div>
-                    <div className="formulario-post">
-                        <h2>Nuevo Post</h2>
-                        <div>
-                            <input
-                                type="text"
-                                placeholder="Título"
-                                value= {title}
-                                onChange={(e) => setTitle(e.target.value)}
-                                required
-                            />
-                            <textarea
-                                placeholder="Descripción"
-                                value={description}
-                                onChange={(e) => setDescription(e.target.value)}
-                            />
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    checked={favorites}
-                                    onChange={() => setFavorites(!favorites)}
-                                />
-                            </label>
-                            <Uploader body={description} title={title} setUploadedUrl={setUploadedUrl} />
-
-                            {/* <button type="submit">Publicar</button> */}
-                        </div>
-                        <Logout />
-                    </div>
                 </>
             ) : (
                 <p> Cargando los datos....</p>

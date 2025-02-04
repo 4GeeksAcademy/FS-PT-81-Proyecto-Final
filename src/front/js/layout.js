@@ -24,6 +24,7 @@ import {LoginVista} from "./component/loginvista.js";
 import { PerfilVista } from "./pages/vistaPerfil.js";
 import { RecuperacionContraseña  } from "./component/recuperacionContraseña.js";
 import { QuienesSomos } from "./pages/quienesSomos.js";
+import {  NewPost } from "./component/newPost.js";
 
 //create your first component
 const Layout = () => {
@@ -52,11 +53,12 @@ const Layout = () => {
                         <Route element={<Krabi />} path="/krabi" />
                         <Route element={<Bangkok />} path="/bangkok" />
                         <Route element={<Ayuttayah />} path="/ayuttayah" />
-                       <Route element= {<QuienesSomos />} path ="/quienessomos" />
+                        <Route element= {<QuienesSomos />} path ="/quienessomos" />
                         <Route element = {<LoginVista />} path= "/login" />
                         <Route element = {<Registro />} path= "/Registro" />
                         <Route element = {<PerfilVista />} path= "/Perfil" />
-                       <Route element = {<RecuperacionContraseña/>} path= "/recuperar-contrasena" />
+                        <Route element = {<NewPost />} path= "/newpost" />
+                        <Route element = {<RecuperacionContraseña/>} path= "/recuperar-contrasena" />
 
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>

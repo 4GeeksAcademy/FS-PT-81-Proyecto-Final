@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext} from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -7,7 +7,7 @@ import '../../styles/index.css';
 
 
 export const Navbar = () => {
-    const {store} = useContext(Context)
+    const { store, actions } = useContext(Context)
 
     const [navbarSearchTerm, setNavbarSearchTerm] = useState("");
     const [offcanvasSearchTerm, setOffcanvasSearchTerm] = useState("")
@@ -19,10 +19,14 @@ export const Navbar = () => {
         setNavbarSearchTerm(e.target.value);
     };
 
-    
+
     const handleOffcanvasInputChange = (e) => {
         setOffcanvasSearchTerm(e.target.value);
     }
+    const handleLogout = () => {
+        actions.logout();
+        navigate("/")
+    };
 
     const handleSearch = (e) => {
         e.preventDefault();
@@ -72,16 +76,16 @@ export const Navbar = () => {
                     "TripGeeks: Conecta con el mundo a través de tus viajes"
                 </div>
                 <div className="auth-container">
-                    { token? 
-                    <p className="bienvenidoText"> Bienvenido, {userName}</p> :
-                    <div>
-                    <Link to="/login">
-                        <span className="textlogin">Iniciar Sesión</span>
-                    </Link>
-                    <Link to="/Registro">
-                        <span className="textlogin">Registrarse</span>
-                    </Link>
-                    </div>
+                    {token ?
+                        <p className="bienvenidoText"> Bienvenido, {userName}</p> :
+                        <div>
+                            <Link to="/login">
+                                <span className="textlogin">Iniciar Sesión</span>
+                            </Link>
+                            <Link to="/Registro">
+                                <span className="textlogin">Registrarse</span>
+                            </Link>
+                        </div>
                     }
                     <form className="form form-navbar"
                         onSubmit={handleSearch}>
@@ -108,7 +112,7 @@ export const Navbar = () => {
                     <div className="offcanvas-body">
                         <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li className="nav-item">
-                                <Link to="/" style={{ textDecoration: "none", color: "black"  }} className="nav-link active"  aria-current="page">Inicio</Link>
+                                <Link to="/" style={{ textDecoration: "none", color: "black" }} className="nav-link active" aria-current="page">Inicio</Link>
                             </li>
                             <li className="nav-item dropdown">
                                 <a
@@ -150,6 +154,14 @@ export const Navbar = () => {
                                             </a>
                                         </li>
                                     </Link>
+                                    {token && (
+                                        <>
+                                            <li><Link className="dropdown-item" to="/perfil" style={{ textDecoration: "none" }} >Tu Perfil</Link></li>
+                                            <li><Link className="dropdown-item" to="/newpost" style={{ textDecoration: "none" }} >Nueva Historia</Link></li> 
+                                            <li><hr className="dropdown-divider" /></li>
+                                            <li><button className="dropdown-item" onClick={handleLogout}>Cerrar Sesión</button></li>
+                                        </>
+                                    )}
                                     <li>
                                         <hr className="dropdown-divider" />
                                     </li>

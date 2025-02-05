@@ -80,7 +80,7 @@
            target="_blank"
            rel="noopener noreferrer">
              <h5 className="destinos_turisticos">
-              Sagrada Familia:
+              Sagrada Familia
             </h5>
             <i className="mapa_icono_ciudad fa-regular fa-map" />
            </a>
@@ -108,7 +108,7 @@
         target="_blank"
         rel="noopener noreferrer">
           <h5 className="destinos_turisticos">
-              Parque Güell:
+              Parque Güell
             </h5>
             <i className="mapa_icono_ciudad fa-regular fa-map" />
         </a>

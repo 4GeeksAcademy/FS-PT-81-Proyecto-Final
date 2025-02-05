@@ -23,8 +23,12 @@ export const Navbar = () => {
 
     const handleLogout = () => {
         actions.logout();
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
         navigate("/");
+        window.location.reload(); // Recarga la página para actualizar el estado
     };
+    
 
     const handleSearch = (e) => {
         e.preventDefault();

@@ -26,8 +26,9 @@ export const LoginVista = () => {
         const succes =  actions.loginUser({email, password });
         if (succes) {
             console.log("Sesion iniciada, redirigiendo.....");
-            navigate("/perfil");
-        } else {
+            setTimeout(() => {navigate("/perfil");
+        }, 100); 
+    } else {
             console.error("Error iniciando sesion", store.error);
         }
     };

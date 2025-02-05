@@ -20,7 +20,7 @@ export const PerfilUsuario = ({ user, setUser }) => {
         !localStorage.getItem("token") && navigate("/");
         console.log("usuario en localStorage:", localStorage.getItem("user"));
     }, []);
-    /*/const handleSubmit = async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         actions.createPost(title, description, uploadedUrl, favorites);
         setTitle("");
@@ -28,7 +28,7 @@ export const PerfilUsuario = ({ user, setUser }) => {
         setUploadedUrl("");
         setFavorites(false);
 
-    };/*/
+    };
 
     return (
         <div className="perfil-container">
@@ -71,34 +71,6 @@ export const PerfilUsuario = ({ user, setUser }) => {
                             <span className="carousel-control-next-icon" aria-hidden="true"></span>
                             <span className="visually-hidden">Next</span>
                         </button>
-                    </div>
-                    <div className="formulario-post">
-                        <h2>Nuevo Post</h2>
-                        <div>
-                            <input
-                                type="text"
-                                placeholder="Título"
-                                value= {title}
-                                onChange={(e) => setTitle(e.target.value)}
-                                required
-                            />
-                            <textarea
-                                placeholder="Descripción"
-                                value={description}
-                                onChange={(e) => setDescription(e.target.value)}
-                            />
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    checked={favorites}
-                                    onChange={() => setFavorites(!favorites)}
-                                />
-                            </label>
-                            <Uploader body={description} title={title} setUploadedUrl={setUploadedUrl} />
-
-                            {/* <button type="submit">Publicar</button> */}
-                        </div>
-                        <Logout />
                     </div>
                 </>
             ) : (

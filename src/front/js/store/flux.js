@@ -382,14 +382,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 			logout: () => {
 				console.log("Cerrando sesión...");
 				localStorage.removeItem("token");
-				setStore({ currentUser: null, token: null });
+				localStorage.removeItem("user");
+				setStore({token: null, user:null });
 			},
 			getPosts: async () => {
 				try {
+					const {getStore, setStore} = getActions();
 					const response = await fetch(`${process.env.BACKEND_URL}api/posts`);
 					if (!response.ok) throw new Error("error al obtener posts");
+
 					const data = await response.json();
-					const userId = getStore().currentUser?.id;
+					const user = getStore().user;
+					if (!user) {
+					setStore({posts: data});
+						
+					}
+					const userId = user.id;
 					const userPosts = data.filter(post => post.user_id === userId);
 
 					setStore({ posts: userPosts });
@@ -400,6 +408,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			createPost: async (title, body, image) => {
 				try {
+					const store = getStore();
 					const token = localStorage.getItem("token");
 					if (!token) throw new Error("no hay token");
 					
@@ -415,7 +424,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (!response.ok) throw new Error("Error creando post");
 					console.log(" post creado correctamente:", data);
 					setStore({  posts: [...getStore().posts, data.post] });
-					getActions().getPosts();
+
+					await getActions().getPosts();
 
 
 				} catch (error) {

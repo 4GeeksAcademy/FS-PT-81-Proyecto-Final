@@ -155,8 +155,8 @@ a{
 
   }
 }
-
-@media (max-width: 480px) { /* Teléfonos pequeños */
+/* Teléfonos pequeños */
+@media (max-width: 480px) { 
   .destinos_turisticos {
       font-size: 1.2rem;
       width: 90%;

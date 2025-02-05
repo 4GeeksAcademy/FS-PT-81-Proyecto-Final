@@ -18,7 +18,7 @@
     gap: 50px; 
     justify-content: center; 
     margin-bottom: -350px; 
-    flex-wrap: wrap; /* Permite que los elementos pasen a otra fila */
+    flex-wrap: wrap; 
 }
 
 .col {
@@ -88,28 +88,28 @@
 /* Estilos para tablets */
 @media (max-width: 768px) {
     .backGroundSpain {
-        font-size: 2rem; /* Reduce el tamaño del texto */
+        font-size: 2rem; 
         padding: 20px;
         min-height:120vh;
     }
 
     .row {
-        gap: 30px; /* Reduce el espacio entre columnas */
-        margin-bottom: -200px; /* Ajusta el margen inferior */
+        gap: 30px; 
+        margin-bottom: -200px; 
     }
 
     .cities_img {
         width: 250px; 
-        height: 200px; /* Reduce el tamaño de las imágenes */
+        height: 200px; 
         margin-bottom:20px;
     }
 
     .city-name {
-        font-size: 3rem; /* Reduce el tamaño del texto */
+        font-size: 3rem; 
     }
 
     .españa-title {
-        font-size: 4rem; /* Reduce el tamaño del título */
+        font-size: 4rem; 
         margin-top:-15px;
     }
 }
@@ -117,29 +117,29 @@
 /* Estilos para móviles */
 @media (max-width: 480px) {
     .backGroundSpain {
-        font-size: 2rem; /* Reduce aún más el tamaño del texto */
+        font-size: 2rem; 
         padding: 10px;
         
     }
 
     .row {
-        flex-direction: column; /* Cambia los elementos a una columna */
+        flex-direction: column; 
         gap: 20px;
         margin-bottom: -150px;
     }
 
     .cities_img {
         width: 200px; 
-        height: 100px; /* Ajusta el tamaño de las imágenes */
+        height: 100px; 
     }
 
     .city-name {
-        font-size: 1.5rem; /* Reduce el tamaño del texto */
+        font-size: 1.5rem; 
         
     }
 
 
-     .españa-title {
+    .españa-title {
         font-size: 2.3rem; /* Ajusta el tamaño del título */
         margin-top:-8px;
     }
@@ -233,22 +233,22 @@
         min-height:120vh;
     }
     .row {
-        gap: 30px; /* Reduce el espacio entre columnas */
-        margin-bottom: -200px; /* Ajusta el margen inferior */
+        gap: 30px; 
+        margin-bottom: -200px; 
     }
 
     .cities_img {
         width: 250px; 
-        height: 200px; /* Reduce el tamaño de las imágenes */
+        height: 200px; 
         margin-bottom:20px;
     }
 
     .city-name {
-        font-size: 3rem; /* Reduce el tamaño del texto */
+        font-size: 3rem; 
     }
 
     .tailandia-title {
-        font-size: 4rem; /* Reduce el tamaño del título */
+        font-size: 4rem; 
         margin-top:-15px;
     }
 }
@@ -256,29 +256,29 @@
 /* Estilos para móviles */
 @media (max-width: 480px) {
     .backGroundAsia {
-        font-size: 2rem; /* Reduce aún más el tamaño del texto */
+        font-size: 2rem; 
         padding: 10px;
         min-height:100vh;
     }
 
     .row {
-        flex-direction: column; /* Cambia los elementos a una columna */
+        flex-direction: column; 
         gap: 20px;
         margin-bottom: -150px;
     }
 
     .cities_img {
         width: 200px; 
-        height: 100px; /* Ajusta el tamaño de las imágenes */
+        height: 100px; 
     }
 
     .city-name {
-        font-size: 1.5rem; /* Reduce el tamaño del texto */
+        font-size: 1.5rem;
         
     }
 
     .tailandia-title {
-        font-size: 2.3rem; /* Ajusta el tamaño del título */
+        font-size: 2.3rem; 
         margin-top:-8px;
     }
 }
@@ -350,22 +350,22 @@
     }
 
     .row {
-        gap: 30px; /* Reduce el espacio entre columnas */
-        margin-bottom: -200px; /* Ajusta el margen inferior */
+        gap: 30px; 
+        margin-bottom: -200px; 
     }
 
     .cities_img {
         width: 250px; 
-        height: 200px; /* Reduce el tamaño de las imágenes */
+        height: 200px;
         margin-bottom:20px;
     }
 
     .city-name {
-        font-size: 3rem; /* Reduce el tamaño del texto */
+        font-size: 3rem; 
     }
 
     .marruecos-title {
-        font-size: 4rem; /* Reduce el tamaño del título */
+        font-size: 4rem; 
         margin-top:-15px;
     }
 }
@@ -373,29 +373,29 @@
 /* Estilos para móviles */
 @media (max-width: 480px) {
     .backGroundAfrica {
-        font-size: 2rem; /* Reduce aún más el tamaño del texto */
+        font-size: 2rem; 
         padding: 10px;
         min-height:100vh;
     }
 
     .row {
-        flex-direction: column; /* Cambia los elementos a una columna */
+        flex-direction: column; 
         gap: 20px;
         margin-bottom: -150px;
     }
 
     .cities_img {
         width: 200px; 
-        height: 100px; /* Ajusta el tamaño de las imágenes */
+        height: 100px; 
     }
 
     .city-name {
-        font-size: 1.5rem; /* Reduce el tamaño del texto */
+        font-size: 1.5rem; 
         
     }
 
     .marruecos-title {
-        font-size: 2.3rem; /* Ajusta el tamaño del título */
+        font-size: 2.3rem; 
         margin-top:-8px;
     }
 }

@@ -7,7 +7,7 @@ export const Europa = () => {
   const { store } = useContext(Context);
   const navigate = useNavigate();
 
-  // Filtrar destinos de Europa
+  
   const destinosEuropa = store.destinos.filter(destino => destino.region === "Europa");
 
   return (

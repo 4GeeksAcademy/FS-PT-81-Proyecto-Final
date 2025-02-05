@@ -28,7 +28,7 @@
     <div>
      
       <div className="container">
-        <h4 className="city_destinos d-flex">
+        <h4 className="city_destinos">
             <span className="bar_word">BAR</span>
             <span className="ce_word">CE</span>
             <span className="lo_word">LO</span>

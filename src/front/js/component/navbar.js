@@ -97,7 +97,7 @@ export const Navbar = () => {
                 )}
 
                 
-                {token && <p className="bienvenido-text">!Bienvenido, {userName}¡</p>}
+                {token && <p className="bienvenido-text">!Bienvenid@, {userName}¡</p>}
 
                 <form className="form form-navbar" onSubmit={handleSearch}>
                     <input

@@ -29,9 +29,12 @@ return(
      
       <div className="container">
         <h4 className="city_destinos d-flex">
-            <span className="ayu_word">AYU</span>
+            <span className="a_word">A</span>
+            <span className="yu_word">YU</span>
             <span className="tth_word">TTH</span>
-            <span className="aya_word">AYA</span>
+            <span className="ay_word">AY</span>
+            <span className="a_word">A</span>
+           
            
         </h4>
         <div className="list">

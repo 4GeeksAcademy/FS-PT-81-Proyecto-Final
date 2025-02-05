@@ -30,8 +30,12 @@
      
       <div className="container">
         <h4 className="city_destinos d-flex">
-            <span className="kra_word">KRA</span>
-            <span className="bi_word">BI</span>
+            <span className="k_word">K</span>
+            <span className="r_word">R</span>
+            <span className="a_word">A</span>
+            <span className="b_word">B</span>
+            <span className="i_word">I</span>
+          
             
            
         </h4>

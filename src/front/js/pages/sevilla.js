@@ -200,7 +200,7 @@ export const Sevilla = () => {
                 probar tapas en sus bares y disfrutar de la auténtica esencia sevillana.
               </p>
               <img className="imagenes_destinos_turisticos"
-                src=" " alt=" Barrio Triana"
+                src="https://viajesoceanic.com/wp-content/uploads/2018/08/Barrio-de-Triana-en-Sevilla-1.jpg" alt=" Barrio Triana"
                  />
 
             </div>

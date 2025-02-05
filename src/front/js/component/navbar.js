@@ -26,7 +26,7 @@ export const Navbar = () => {
         localStorage.removeItem("token");
         localStorage.removeItem("user");
         navigate("/");
-        window.location.reload(); // Recarga la página para actualizar el estado
+        window.location.reload(); 
     };
     
 

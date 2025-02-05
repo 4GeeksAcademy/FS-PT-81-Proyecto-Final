@@ -3,7 +3,7 @@ import '../../styles/destinos_ciudades.css';
 
 export const CommentBox = () => {
     const [comment, setComment] = useState("");
-    const token = localStorage.getItem("token"); // Verifica si el usuario está autenticado
+    const token = localStorage.getItem("token"); 
 
     const handleChange = (event) => {
         setComment(event.target.value);
@@ -21,7 +21,7 @@ export const CommentBox = () => {
                 <h4>Comentarios...</h4>
             </div>
 
-            {/* Si el usuario está autenticado, muestra el formulario */}
+        
             {token ? (
                 <form onSubmit={handleSubmit}>
                     <textarea
@@ -38,7 +38,7 @@ export const CommentBox = () => {
                     </button>
                 </form>
             ) : (
-                // Si el usuario NO está autenticado, muestra el mensaje con enlaces a "iniciar sesión" o "registrarse"
+                
                 <p>
                     <strong>Para comentar, necesitas una cuenta.</strong>  
                     <br />

@@ -39,10 +39,10 @@ export const Registro = () => {
      };
     return (
         <div className="bodygeneral">
-            <div className="bodyregister mt-5">
-                <h1 className="titleregister mt-5">Registrate</h1>
-                <form onSubmit={handleSubmit}>
-                <div className="mb-3">
+            <div className="bodyregister ">
+                <h1 className="titleregister">Registrate</h1>
+                <form className="cuadroRegistro" onSubmit={handleSubmit}>
+                <div className="nombreRegistro">
                         <label className="labelname">Name</label>
                         <input className="inputname"
                             type="text"
@@ -53,7 +53,7 @@ export const Registro = () => {
                             required
                         />
                     </div>
-                    <div className="mb-3">
+                    <div className="emailRegistro">
                         <label className="emaillabel">Email</label>
                         <input className="inputemail"
                             type="email"
@@ -64,9 +64,9 @@ export const Registro = () => {
                             required
                         />
                     </div>
-                    <div className="mb-3">
+                    <div className="contraseñaRegistro">
                         <label className="contralabel">Contraseña</label>
-                        <input className="inputcontra"
+                        <input className="inputContra" 
                             type="password"
                             name="password"
                             placeholder="Contraseña"

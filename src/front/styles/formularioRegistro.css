@@ -1,6 +1,7 @@
 .bodyregister{
-    margin-left: auto;
+    margin-left: 35%;
     margin-right: 50px;
+    margin-top:5%;
     width: 50%;
     max-width: 400px;
     font-family: Arial, sans-serif;
@@ -78,4 +79,204 @@ label{
     color: #0056b3;
     display: block;
     margin-bottom: 0.5rem;
+}
+
+/*tablets*/
+
+
+@media (max-width:1024px){
+    .bodygeneral{
+        height:125vh;
+        
+    }
+
+    .bodyregister{
+        
+        position:absolute;
+        min-height:100px;
+        padding:10px;
+        width:70%;
+        margin:30%;
+        padding:40px;
+       
+    }
+
+    .titleregister{
+        display:flex;
+        text-align:center;
+        justify-content:center;
+        font-size:2.5rem;
+        margin-top:-1%;
+    }
+    
+    .bodyregister input{
+
+        width:90%;
+        font-size:0.5rem;
+        display:flex;
+        justify-content:center;
+        text-align:center;
+
+    }
+
+    .nombreRegistro label{
+        display:flex;
+        text-align:center;
+        flex-direction:column;
+        justify-content:center;
+        font-size:40px;
+    }
+
+    .emailRegistro label{
+        display:flex;
+        text-align:center;
+        flex-direction:column;
+        justify-content:center;
+        font-size:40px;
+    }
+
+    .contraseñaRegistro label{
+        display:flex;
+        text-align:center;
+        flex-direction:column;
+        justify-content:center;
+        font-size:40px;
+    }
+
+    .nombreRegistro input{
+        font-size:1.5rem;
+        width:100%;
+    }
+
+    .emailRegistro input{
+        font-size:1.5rem;
+      
+        margin-left:10px;
+    }
+
+    .contraseñaRegistro input{
+        font-size:1.5rem;
+        width:100%;
+    }
+
+    
+    
+    .cuadroRegistro{
+        
+        padding:20px;
+       
+        
+       
+    }
+
+    .contraseña{
+
+        font-size:1.5rem;
+        font-weight:bold;
+    }
+
+}
+
+/* móviles */
+
+@media (max-width:480px){
+    .bodygeneral{
+        height:125vh;
+        
+    }
+
+    .bodyregister{
+        position:absolute;
+        padding:10px;
+        height:70%;
+        width:70%;
+        margin-top:30%;
+        margin-left:15%;
+       
+    }
+
+    .titleregister{
+        display:flex;
+        text-align:center;
+        margin-top:-2%;
+        font-size:1.5rem;
+    }
+    
+    .bodyregister input{
+
+        width:90%;
+        font-size:0.5rem;
+        display:flex;
+        justify-content:center;
+        text-align:center;
+        margin-top:30%;
+
+    }
+
+    .emailRegistro{
+        display:flex;
+        text-align:center;
+        flex-direction:column;
+        justify-content:center;
+
+    
+    }
+
+    .nombreRegistro{
+
+    font-size:1rem;
+    margin-left:10px;
+    }
+
+    .nombreRegistro label{
+
+        font-size:1rem;
+    }
+
+    .emailRegistro label{
+
+        font-size:1rem;
+    }
+
+    .contraseñaRegistro{
+
+        font-size:1rem;
+        margin-left:10px;
+        }
+    
+        .contraseñaRegistro label{
+    
+            font-size:1rem;
+        }
+    
+    .cuadroRegistro{
+        padding:0px;
+        margin-bottom:20%;
+        
+       
+    }
+
+    .contraseña{
+
+        font-size:0.7rem;
+        font-weight:bold;
+    }
+
+    .butonregister{
+
+        height:5%;
+    }
+
+    .nombreRegistro input{
+        margin-top:1%;
+    }
+
+    .emailRegistro input{
+        margin-top:-1%;
+   
+    }
+    .contraseñaRegistro input{
+        margin-top:-1%;
+    }
+
 }

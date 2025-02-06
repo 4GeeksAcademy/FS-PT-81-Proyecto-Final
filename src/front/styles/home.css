@@ -36,11 +36,23 @@
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
+.trip span {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.trip span:hover {
+    color: #FFD700;
+    transform: scale(1.2);
+    font-size: 1.5rem;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
 /* Estilos para tablets */
 @media (max-width: 768px) {
     .backGroundHome {
         font-size: 2rem; /* Reduce el tamaño del texto */
-        min-height: auto; /* Permite que la altura se ajuste automáticamente */
+        min-height: 100vh; /* Permite que la altura se ajuste automáticamente */
         padding: 20px; /* Añade un poco de espacio alrededor */
     }
 
@@ -76,4 +88,7 @@
     .continents span {
         font-size: 2rem; /* Ajusta el tamaño del texto para pantallas pequeñas */
     }
+
+   
 }
+

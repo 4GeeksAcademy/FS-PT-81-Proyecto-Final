@@ -26,8 +26,9 @@ export const LoginVista = () => {
         const succes =  actions.loginUser({email, password });
         if (succes) {
             console.log("Sesion iniciada, redirigiendo.....");
-            navigate("/perfil");
-        } else {
+            setTimeout(() => {navigate("/perfil");
+        }, 100); 
+    } else {
             console.error("Error iniciando sesion", store.error);
         }
     };
@@ -36,8 +37,8 @@ export const LoginVista = () => {
         <div className="bodygeneral">
             <div className="bodylogin">
                 <h1 className="titlelogin">Iniciar Sesión</h1>
-                <form onSubmit={handleLogin}>
-                    <div>
+                <form className="cuadro"onSubmit={handleLogin}>
+                    <div className="emailInicio">
                         <label>Email  </label>
                         <input
                             type="email"
@@ -47,7 +48,7 @@ export const LoginVista = () => {
 
                         />
                     </div>
-                    <div>
+                    <div className="contraseñaInicio">
                         <label>Contraseña </label>
                         <input
                             type="password"
@@ -59,7 +60,7 @@ export const LoginVista = () => {
                     </div>
                 </form>
                 <button onClick={handleLogin} type="submit">Iniciar Sesión</button>
-                <div>
+                <div className="contraseña">
                     <Link to="/recuperar-contrasena">¿Olvidaste tu Contraseña?</Link>
                 </div>
 

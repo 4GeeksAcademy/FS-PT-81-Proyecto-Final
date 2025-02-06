@@ -29,8 +29,9 @@
      
       <div className="container">
         <h4 className="city_destinos d-flex">
-            <span className="kra_word">MAD</span>
-            <span className="bi_word">RID</span>
+            <span className="ma_word">MA</span>
+            <span className="dr_word">DR</span>
+            <span className="id_word">ID</span>
             
            
         </h4>

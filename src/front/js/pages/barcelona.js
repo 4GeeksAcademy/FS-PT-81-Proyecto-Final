@@ -28,7 +28,7 @@
     <div>
      
       <div className="container">
-        <h4 className="city_destinos d-flex">
+        <h4 className="city_destinos">
             <span className="bar_word">BAR</span>
             <span className="ce_word">CE</span>
             <span className="lo_word">LO</span>
@@ -80,7 +80,7 @@
            target="_blank"
            rel="noopener noreferrer">
              <h5 className="destinos_turisticos">
-              Sagrada Familia:
+              Sagrada Familia
             </h5>
             <i className="mapa_icono_ciudad fa-regular fa-map" />
            </a>
@@ -108,7 +108,7 @@
         target="_blank"
         rel="noopener noreferrer">
           <h5 className="destinos_turisticos">
-              Parque Güell:
+              Parque Güell
             </h5>
             <i className="mapa_icono_ciudad fa-regular fa-map" />
         </a>

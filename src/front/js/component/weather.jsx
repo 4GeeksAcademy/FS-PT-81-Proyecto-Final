@@ -15,7 +15,7 @@ export const Weather = ({ city }) => {
   }
 
   if (!weather || !weather.location){
-    return <p>No hay datos disponibles para el cimla. Intenta de nuevo</p>
+    return <p>No hay datos disponibles para el clima. Intenta de nuevo</p>
   }
 
   if (!weather.current) {

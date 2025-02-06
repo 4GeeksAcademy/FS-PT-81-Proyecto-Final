@@ -5,7 +5,7 @@ body, html{
 
 }
 .bodylogin{
-    margin-left: auto;
+    margin-left:35%;
     margin-right: 50px;
     width: 50%;
     max-width: 400px;
@@ -85,3 +85,173 @@ label{
     display: block;
     margin-bottom: 0.5rem;
 }
+
+.contraseña{
+    color:white;
+    transition:0.3s;
+    font-weight:bold;
+}
+
+.contraseña:hover{
+
+    transform:scale(1.1);
+    color:#c6b921;
+    
+}
+
+/*tablets*/
+
+
+@media (max-width:1024px){
+    .bodygeneral{
+        height:125vh;
+        
+    }
+
+    .bodylogin{
+        
+        position:absolute;
+        min-height:100px;
+        padding:10px;
+        width:70%;
+        margin:30%;
+        padding:40px;
+       
+    }
+
+    .titlelogin{
+        display:flex;
+        text-align:center;
+        justify-content:center;
+        font-size:2.5rem;
+        margin-top:-1%;
+    }
+    
+    .bodylogin input{
+
+        width:90%;
+        font-size:0.5rem;
+        display:flex;
+        justify-content:center;
+        text-align:center;
+
+    }
+
+    .emailInicio label{
+        display:flex;
+        text-align:center;
+        flex-direction:column;
+        justify-content:center;
+        font-size:40px;
+    }
+
+    .contraseñaInicio label{
+        display:flex;
+        text-align:center;
+        flex-direction:column;
+        justify-content:center;
+        font-size:40px;
+    }
+
+    .emailInicio input{
+        font-size:1.5rem;
+        width:100%;
+    }
+
+    .contraseñaInicio input{
+        font-size:1.5rem;
+      
+        margin-left:10px;
+    }
+    
+    
+    .cuadro{
+        
+        padding:20px;
+       
+        
+       
+    }
+
+    .contraseña{
+
+        font-size:1.5rem;
+        font-weight:bold;
+    }
+
+}
+
+/* móviles */
+
+@media (max-width:480px){
+    .bodygeneral{
+        height:125vh;
+        
+    }
+
+    .bodylogin{
+        position:absolute;
+        padding:10px;
+        height:60%;
+        width:70%;
+        margin-top:30%;
+        margin-left:15%;
+       
+    }
+
+    .titlelogin{
+        display:flex;
+        text-align:center;
+        margin-top:2%;
+        font-size:1.5rem;
+    }
+    
+    .bodylogin input{
+
+        width:90%;
+        font-size:0.5rem;
+        display:flex;
+        justify-content:center;
+        text-align:center;
+
+    }
+
+    .contraseñaInicio{
+        display:flex;
+        text-align:center;
+        flex-direction:column;
+        justify-content:center;
+
+    
+    }
+
+    .emailInicio{
+
+    font-size:1rem;
+    margin-left:10px;
+    }
+
+    .emailInicio label{
+
+        font-size:1rem;
+    }
+
+    .contraseñaInicio label{
+
+        font-size:1rem;
+    }
+    
+    .cuadro{
+        padding:0px;
+        
+       
+    }
+
+    .contraseña{
+
+        font-size:0.7rem;
+        font-weight:bold;
+    }
+
+}
+

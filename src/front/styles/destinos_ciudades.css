@@ -11,6 +11,9 @@
 
 
 
+     /*EFECTOS CIUDADES*/
+/*sevilla*/
+
 .se_word:hover p,
 .vil_word:hover p,
 .la_word:hover p {
@@ -29,11 +32,161 @@
   color:rgb(255, 255, 255);
 }
 
+/*barcelona*/
+
+.bar_word:hover ,
+.ce_word:hover ,
+.lo_word:hover ,
+.na_word:hover  {
+    font-size: 5rem; 
+    transform: scale(1.2); 
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.bar_word:hover {
+  color:rgb(13, 46, 192);
+}
+.ce_word:hover {
+   color:red;
+}
+.lo_word:hover {
+  color:rgb(13, 46, 192);
+}
+
+.na_word:hover {
+  color:red;
+}
+
 .container-ciudades{
   border-bottom:2px solid black;
   margin-bottom:2%;
  
 }
+
+/*madrid*/
+
+.ma_word:hover ,
+.dr_word:hover ,
+.id_word:hover 
+ {
+    font-size: 5rem; 
+    transform: scale(1.2); 
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.ma_word:hover {
+  color:rgb(255, 255, 255);
+}
+.dr_word:hover {
+   color:red;
+}
+.id_word:hover {
+  color:rgb(254, 254, 255);
+}
+
+
+/*krabi, bangkok, ayyuthaya*/
+.k_word:hover ,
+.r_word:hover ,
+.a_word:hover ,
+.b_word:hover ,
+.i_word:hover,
+.ba_word:hover ,
+.n_word:hover ,
+.g_word:hover ,
+.k_word:hover ,
+.ok_word:hover
+.a_word:hover ,
+.yu_word:hover ,
+.tth_word:hover ,
+.ay_word:hover ,
+.a_word:hover  
+ {
+    font-size: 5rem; 
+    transform: scale(1.2); 
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.k_word:hover,
+.ba_word:hover,
+.a_word:hover
+ {
+  color:rgb(255, 0, 0);
+}
+.r_word:hover,
+.n_word:hover,
+.yu_word:hover {
+   color:rgb(255, 255, 255);
+}
+.a_word:hover,
+.g_word:hover,
+.tth_word:hover {
+  color:rgba(62, 36, 193, 0.792);
+}
+.b_word:hover,
+.k_word:hover,
+.ay_word:hover {
+  color:rgb(255, 255, 255);
+}
+.i_word:hover,
+.ok_word:hover,
+.a_word:hover {
+   color:red;
+}
+
+/*marrakech, essaouira, merzouga*/
+
+.mar_word:hover ,
+.rak_word:hover ,
+.ech_word:hover ,
+.mer_word:hover ,
+.zou_word:hover,
+.ga_word:hover ,
+.ess_word:hover ,
+.aou_word:hover ,
+.ira_word:hover ,
+.ok_word:hover
+.a_word:hover ,
+.yu_word:hover ,
+.tth_word:hover ,
+.ay_word:hover ,
+.a_word:hover  
+ {
+    font-size: 5rem; 
+    transform: scale(1.2); 
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.mar_word:hover,
+.mer_word:hover,
+.ess_word:hover
+ {
+  color:rgb(255, 0, 0);
+}
+.rak_word:hover,
+.zou_word:hover,
+.aou_word:hover {
+   color:rgb(24, 105, 21);
+}
+.ech_word:hover,
+.ga_word:hover,
+.ira_word:hover {
+  color:rgba(255, 0, 0);
+}
+.b_word:hover,
+.k_word:hover,
+.ay_word:hover {
+  color:rgb(255, 255, 255);
+}
+.i_word:hover,
+.ok_word:hover,
+.a_word:hover {
+   color:red;
+}
+
+
+
+
 /*Cuadro del tiempo*/
 
 .weather-container{
@@ -195,3 +348,5 @@ a{
   transform:scale(1.2);
   color:#FFD700;
 }
+
+

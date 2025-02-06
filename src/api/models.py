@@ -10,11 +10,9 @@ class Users(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(250), nullable=False)
     #profile_picture = db.Column(db.String(50), nullable=True)
-
     comments = db.relationship("Comments", backref='user', lazy=True)
     posts = db.relationship("Posts", backref='user', lazy=True)
     favourites = db.relationship("Favourites", backref='user', lazy=True)
-
     def __repr__(self):
         return f'<User {self.email}>'
 
@@ -24,7 +22,6 @@ class Users(db.Model):
         "username": self.username,
         "email": self.email,
     }
-
 class Posts(db.Model):
     __tablename__ = 'posts'
 
@@ -33,7 +30,6 @@ class Posts(db.Model):
     title = db.Column(db.String(80), nullable=False)
     body = db.Column(db.String(), nullable=False)
     image = db.Column(db.String(800), nullable=False)
-    #created_at = db.Column(db.String(50), nullable=False)
 
     comments = db.relationship("Comments", backref='post', lazy=True)
     favourites = db.relationship("Favourites", backref='post', lazy=True)
@@ -48,8 +44,6 @@ class Posts(db.Model):
             "title": self.title,
             "body": self.body,
             "image": self.image,
-            "created_at": self.created_at,
-            "category_id": self.category_id
         }
     
 class Comments(db.Model):

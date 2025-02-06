@@ -1,59 +1,83 @@
 import React from "react";
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import '../../styles/formularioRegistro.css'
 
 
 
 export const Registro = () => {
-    const { store, actions } = useContext(Context);
-    const [form, setForm] = useState({
-        email: '',
-        contraseña: ''
-    });
-    const handleSubmit = e => {
-        e.preventDefault();
-        actions.registro(form);
+    const { store, actions, } = useContext(Context);
+    const navigate = useNavigate();
 
+    const [form, setForm] = useState({
+       username:"",
+        email: "",
+        password: "",
+    });
+    const handleChange = (e) => {
+        setForm({...form, [e.target.name]: e.target.value,
+        });
     };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!form.username || !form.email || !form.password) {
+            console.error("Todos los campos son obligatorios");
+            return;
+        }
+        try {
+            console.log("enviando datos de registro", form);
+            const succes = await actions.createUser(form, navigate);
+            if (succes) {
+                console.log("registro valido, redirigiendo....");
+                navigate("/login");
+            } 
+        } catch (error) {
+            console.error("Error al registrar el usuario", error)
+            
+        }
+     };
     return (
-        <div>
-            <div className="bodyregister mt-5">
-                <h2 className="titleregister mt-5">Registrate</h2>
-                <form onSubmit={handleSubmit}>
-                <div className="mb-3">
+        <div className="bodygeneral">
+            <div className="bodyregister ">
+                <h1 className="titleregister">Registrate</h1>
+                <form className="cuadroRegistro" onSubmit={handleSubmit}>
+                <div className="nombreRegistro">
                         <label className="labelname">Name</label>
                         <input className="inputname"
-                            type="name"
+                            type="text"
+                            name="username"
                             placeholder="Nombre"
-                            value={form.name}
-                            onChange={(e) => setForm({ ...form, name: e.target.value })}
+                            value={form.username}
+                            onChange={handleChange}
                             required
                         />
                     </div>
-                    <div className="mb-3">
+                    <div className="emailRegistro">
                         <label className="emaillabel">Email</label>
                         <input className="inputemail"
                             type="email"
+                            name="email"
                             placeholder="Email"
                             value={form.email}
-                            onChange={(e) => setForm({ ...form, email: e.target.value })}
+                            onChange={handleChange}
                             required
                         />
                     </div>
-                    <div className="mb-3">
+                    <div className="contraseñaRegistro">
                         <label className="contralabel">Contraseña</label>
-                        <input className="inputcontra"
+                        <input className="inputContra" 
                             type="password"
+                            name="password"
                             placeholder="Contraseña"
-                            value={form.contraseña}
-                            onChange={(e) => setForm({ ...form, contraseña: e.target.value })}
+                            value={form.password}
+                            onChange={handleChange}
                             required
                         />
                     </div>
-                    <button className="butonregister" type="submit">Registrarse</button>
+                    <button className="butonregister" type="submit">Registrate</button>
                 </form>
-               
+              {store.error && <p className="mensaje de error">{store.error}</p>} 
             </div >
         </div>
     );

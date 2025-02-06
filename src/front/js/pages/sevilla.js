@@ -194,13 +194,13 @@ export const Sevilla = () => {
           <div className="container">
 
             <div className="first_paragraph">
-              <p>
+              <p> 
                 Triana es un barrio tradicionalmente conocido por su vibrante ambiente, su cerámica y su relación con el flamenco.
                 Situado a orillas del río Guadalquivir, este pintoresco barrio es perfecto para perderse en sus calles adoquinadas,
                 probar tapas en sus bares y disfrutar de la auténtica esencia sevillana.
               </p>
               <img className="imagenes_destinos_turisticos"
-                src="https://th.bing.com/th/id/R.509a722337f97183c49aff7460b07bdb?rik=OEy83%2fN%2f0LTkbA&pid=ImgRaw&r=0" alt=" Barrio Triana"
+                src="https://viajesoceanic.com/wp-content/uploads/2018/08/Barrio-de-Triana-en-Sevilla-1.jpg" alt=" Barrio Triana"
                  />
 
             </div>

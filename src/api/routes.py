@@ -8,6 +8,8 @@ from flask_cors import CORS
 from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required
 from werkzeug.security import generate_password_hash, check_password_hash
 api = Blueprint('api', __name__)
+import cloudinary
+import cloudinary.uploader
 
 # Allow CORS requests to this API
 CORS(api)
@@ -75,7 +77,7 @@ def login():
     
     token = create_access_token(identity=str(exist.id))
     
-    return jsonify({"message": "Inicio de sesión exitoso", "token": token}), 200
+    return jsonify({"user": exist.username, "token": token}), 200
 
 # ----------------- POSTS -------------------- #
 @api.route('/posts', methods=['GET'])
@@ -92,11 +94,17 @@ def get_post(id):
 @jwt_required()
 def create_post():
     data = request.get_json()
+    user_id = get_jwt_identity()
     title = data.get('title')
     body = data.get('body')
     image = data.get('image')
     if not title or not body or not image:
         return jsonify({'message': 'Todos los campos son necesarios'}), 400
+    
+    new_post = Posts(title=title, body=body, img=image, user_id=user_id)
+    db.session.add(new_post)
+    db.session.commit()
+    
     return jsonify({'message': 'Post creado exitosamente'}), 201
 
 @api.route('/posts/<int:id>', methods=['DELETE'])
@@ -202,3 +210,22 @@ def delete_favourite(id):
     db.session.commit()
     
     return jsonify({'message': f'Favourite with id={id} deleted'}), 200
+
+
+# ----------------- CLOUDINARY ----------------- #
+@api.route('/upload', methods=['POST'])
+@jwt_required()
+def upload():
+    user_id = get_jwt_identity()
+    title = request.form.get('title')
+    body = request.form.get('body')
+    file_to_upload = request.files['file']
+    if file_to_upload:
+        upload = cloudinary.uploader.upload(file_to_upload)
+        image_url = upload.get("url")
+    post = Posts (user_id = user_id, title =title, body= body, image= image_url)
+    db.session.add(post)
+    db.session.commit()
+    return jsonify({"message": "Post created successfully", "post": post.serialize()}), 201
+
+    

@@ -12,6 +12,7 @@ from api.admin import setup_admin
 from api.commands import setup_commands
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
+import cloudinary
 
 
 
@@ -24,6 +25,13 @@ app = Flask(__name__)
 app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
 jwt = JWTManager(app)
 app.url_map.strict_slashes = False
+
+
+cloudinary.config(
+    cloud_name=os.getenv('CLOUDINARY_CLOUD_NAME'),
+    api_key=os.getenv('CLOUDINARY_API_KEY'),
+    api_secret=os.getenv('CLOUDINARY_API_SECRET')
+)
 
 # database condiguration
 db_url = os.getenv("DATABASE_URL")

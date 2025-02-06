@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Margarine&display=swap');
+
+.navbar{
+    background-color:#32C8D9;
+    height:12%;
+}
+
 .offcanvas{
     background-color:#F2D22E;
     border-radius:5%;
@@ -13,7 +19,18 @@
     font-weight: bold;
     color:#32C8D9;
 }
+.menu{
+    padding:5px;
+    font-weight:bold;
+    margin-top:-0.5%;
+   
 
+}
+.menu:hover{
+    
+    background-color:transparent;
+    
+}
 .dropdown-menu{
     border-radius:10%;
     border: 3px solid #32c8d9;
@@ -32,22 +49,30 @@
     border:0px;
 }
 .text-Navbar {
-     font-size:24px;
+     font-size:20px;
      font-family: 'Margarine', cursive;
      display:flex;
-     justify-content: center;
-     margin-right:500px;
+     text-align:center;
      color:white;}
+
+.bienvenido-text{font-size:30px;
+    font-family: 'Margarine', cursive;
+    display:flex;
+    text-align:center;
+    color:white;}
 
 .navbar .auth-container {
         display: flex;
         align-items: center;
         text-decoration:none;
         gap: 15px;
-        position: absolute; 
-        top: 10px;          
-        right: 10px;        
-           
+        position: relative; 
+        transition:0.3s;
+                     
+    }
+    .navbar .auth-container .textlogin:hover{
+        transform:scale(1.2);
+        color:#FFD700;
     }
     
     /* Estilos para los textos de Iniciar Sesión y Registrarse */
@@ -56,6 +81,8 @@
         font-size: 14px;
         font-weight: bold;
         text-decoration: none;
+        
+        
     }
     
     /* Input  del auth-container */
@@ -70,31 +97,33 @@
 
     .form{
        
-        padding-bottom:0px;
+        padding:0px;
         background-color: transparent;
         box-shadow:none;
+        margin-bottom:-10px;
+        
     }
     
     /*Botón búsqueda*/
 
     .search-button{
         position:absolute;
-        border-radius:0px;
+        margin-right:-1%;
         box-shadow:none;
-        border:0px;
         background-color:transparent;
         color:#ffffff;
         text-decoration:none;
         font-weight:bold;
          font-size:25px;        
          transition:0.3;
-          bottom:10px;
+          
         right:225px;
     }
 
-    .search-button i:hover{
+    .search-button:hover{
         transform: scale(1.5);
         color:#FFD700;
+        background-color:transparent;
 
     }
     
@@ -113,7 +142,20 @@
             width: 200px;
             position:absolute;
             right:200px;
+            
         }
+
+       
+        .menu{
+
+            margin-top:-10px;
+            font-size:2rem;
+        }
+
+       
+        
+
+        
     }
     
     /* Ajustes para pantallas pequeñas (móviles) */
@@ -131,7 +173,36 @@
             margin-top: 5px;
             right:120px;
         }
+
+        .menu{
+
+            margin-top:-10px;
+            font-size:1rem;
+        }
+        .bienvenido-text{
+
+            margin:auto;
+            color:rgb(255, 255, 255);
+            font-size:1.5rem;
+            transition:0.3s
+    
+        }
+    
+        .bienvenido-text:hover{
+    
+           transform:scale(1);
+           color:#FFD700;
+    
+        }
     }
+
+    .bienvenido-text:hover{
+
+    transform:scale(1.2);
+    color:#FFD700;
+
+ }
+
     
 
 
@@ -165,21 +236,14 @@
 .textFooter{
     color:rgb(100, 100, 100);
     font-family: 'Margarine', cursive;
-    margin-right:3px;
+    margin-right: 3px;
 }
-.textlogin{
+
+.textlogin {
     color: white;
     text-decoration: none;
     margin: 0 15px;
-    transition: color 0.3s, transform 0.3s;
+    transition: color 0.3s;
     cursor: pointer;
 }
-.textlogin:hover{
-    color: #ffd700;
-    transform: scale(1,1);
-}
-
-
-
-
 

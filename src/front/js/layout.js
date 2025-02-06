@@ -19,10 +19,12 @@ import { Ayuttayah } from "./pages/ayuttayah";
 import { Asia } from "./pages/asia";
 import { Africa } from "./pages/africa";
 
-import { Registro} from "./component/formularioRegistro";
-import {LoginVista} from "./pages/loginvista";
-import { PerfilVista } from "./pages/vistaPerfil";
+import { Registro} from "./component/formularioRegistro.js";
+import {LoginVista} from "./component/loginvista.js";
+import { PerfilVista } from "./pages/vistaPerfil.js";
+import { RecuperacionContraseña  } from "./component/recuperacionContraseña.js";
 import { QuienesSomos } from "./pages/quienesSomos.js";
+import {  NewPost } from "./component/newPost.js";
 
 //create your first component
 const Layout = () => {
@@ -51,10 +53,12 @@ const Layout = () => {
                         <Route element={<Krabi />} path="/krabi" />
                         <Route element={<Bangkok />} path="/bangkok" />
                         <Route element={<Ayuttayah />} path="/ayuttayah" />
-                       <Route element= {<QuienesSomos />} path ="/quienessomos" />
+                        <Route element= {<QuienesSomos />} path ="/quienessomos" />
                         <Route element = {<LoginVista />} path= "/login" />
                         <Route element = {<Registro />} path= "/Registro" />
-                        <Route element = {<PerfilVista />} path= "/vistaPerfil" />
+                        <Route element = {<PerfilVista />} path= "/Perfil" />
+                        <Route element = {<NewPost />} path= "/newpost" />
+                        <Route element = {<RecuperacionContraseña/>} path= "/recuperar-contrasena" />
 
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>

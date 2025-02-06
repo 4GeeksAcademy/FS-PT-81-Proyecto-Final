@@ -29,8 +29,10 @@ return(
      
       <div className="container">
         <h4 className="city_destinos d-flex">
-            <span className="ban_word">BAN</span>
-            <span className="gk_word">GK</span>
+            <span className="ba_word">BA</span>
+            <span className="n_word">N</span>
+            <span className="g_word">G</span>
+            <span className="k_word">K</span>
             <span className="ok_word">OK</span>
             
         </h4>

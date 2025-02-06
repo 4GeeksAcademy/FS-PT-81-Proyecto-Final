@@ -1,0 +1,9 @@
+.carousel-item img{
+    width:100vh ;
+    height: 400px;
+    object-fit: cover;
+}
+.jumbotron{
+    max-height: 400px;
+    overflow: hidden;
+}

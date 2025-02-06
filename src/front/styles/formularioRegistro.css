@@ -1,26 +1,33 @@
 .bodyregister{
-    margin: 0;
-    width: 100%;
+    margin-left: 35%;
+    margin-right: 50px;
+    margin-top:5%;
+    width: 50%;
+    max-width: 400px;
     font-family: Arial, sans-serif;
-    background-image: url(https://bpic.588ku.com/back_origin_min_pic/21/08/19/a25663853080894c5e95af224dc98487.jpg!/fw/750/quality/99/unsharp/true/compress/true);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top;
-    background-color:#f5f5f5;
-    border-radius: 15px;
+    background-color: #18A2B8;
+    border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    padding: 50px;
+    padding: 20px;
 
 }
-
+.bodygeneral{
+    height: 100vh;
+    background-image: url(https://imgs.search.brave.com/F2PY3KHdGJkTy0rof43OnQlZfS6iHyqiBzGfzvKRCVY/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/YmxvZ2RlbGZvdG9n/cmFmby5jb20vd3At/Y29udGVudC91cGxv/YWRzLzIwMjAvMDkv/c2FoYXJhLndlYnA);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+}
 .titleregister{
-    font-size: 2.5rem;
-    color: #e7eff8;
+    color: #fafcfd;
+    text-align: center;
     margin-bottom: 1.5rem;
     font-weight: bold;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: start;
+
+    
 }
 
 form{
@@ -72,4 +79,204 @@ label{
     color: #0056b3;
     display: block;
     margin-bottom: 0.5rem;
+}
+
+/*tablets*/
+
+
+@media (max-width:1024px){
+    .bodygeneral{
+        height:125vh;
+        
+    }
+
+    .bodyregister{
+        
+        position:absolute;
+        min-height:100px;
+        padding:10px;
+        width:70%;
+        margin:30%;
+        padding:40px;
+       
+    }
+
+    .titleregister{
+        display:flex;
+        text-align:center;
+        justify-content:center;
+        font-size:2.5rem;
+        margin-top:-1%;
+    }
+    
+    .bodyregister input{
+
+        width:90%;
+        font-size:0.5rem;
+        display:flex;
+        justify-content:center;
+        text-align:center;
+
+    }
+
+    .nombreRegistro label{
+        display:flex;
+        text-align:center;
+        flex-direction:column;
+        justify-content:center;
+        font-size:40px;
+    }
+
+    .emailRegistro label{
+        display:flex;
+        text-align:center;
+        flex-direction:column;
+        justify-content:center;
+        font-size:40px;
+    }
+
+    .contraseñaRegistro label{
+        display:flex;
+        text-align:center;
+        flex-direction:column;
+        justify-content:center;
+        font-size:40px;
+    }
+
+    .nombreRegistro input{
+        font-size:1.5rem;
+        width:100%;
+    }
+
+    .emailRegistro input{
+        font-size:1.5rem;
+      
+        margin-left:10px;
+    }
+
+    .contraseñaRegistro input{
+        font-size:1.5rem;
+        width:100%;
+    }
+
+    
+    
+    .cuadroRegistro{
+        
+        padding:20px;
+       
+        
+       
+    }
+
+    .contraseña{
+
+        font-size:1.5rem;
+        font-weight:bold;
+    }
+
+}
+
+/* móviles */
+
+@media (max-width:480px){
+    .bodygeneral{
+        height:125vh;
+        
+    }
+
+    .bodyregister{
+        position:absolute;
+        padding:10px;
+        height:70%;
+        width:70%;
+        margin-top:30%;
+        margin-left:15%;
+       
+    }
+
+    .titleregister{
+        display:flex;
+        text-align:center;
+        margin-top:-2%;
+        font-size:1.5rem;
+    }
+    
+    .bodyregister input{
+
+        width:90%;
+        font-size:0.5rem;
+        display:flex;
+        justify-content:center;
+        text-align:center;
+        margin-top:30%;
+
+    }
+
+    .emailRegistro{
+        display:flex;
+        text-align:center;
+        flex-direction:column;
+        justify-content:center;
+
+    
+    }
+
+    .nombreRegistro{
+
+    font-size:1rem;
+    margin-left:10px;
+    }
+
+    .nombreRegistro label{
+
+        font-size:1rem;
+    }
+
+    .emailRegistro label{
+
+        font-size:1rem;
+    }
+
+    .contraseñaRegistro{
+
+        font-size:1rem;
+        margin-left:10px;
+        }
+    
+        .contraseñaRegistro label{
+    
+            font-size:1rem;
+        }
+    
+    .cuadroRegistro{
+        padding:0px;
+        margin-bottom:20%;
+        
+       
+    }
+
+    .contraseña{
+
+        font-size:0.7rem;
+        font-weight:bold;
+    }
+
+    .butonregister{
+
+        height:5%;
+    }
+
+    .nombreRegistro input{
+        margin-top:1%;
+    }
+
+    .emailRegistro input{
+        margin-top:-1%;
+   
+    }
+    .contraseñaRegistro input{
+        margin-top:-1%;
+    }
+
 }

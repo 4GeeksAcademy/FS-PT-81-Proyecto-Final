@@ -456,7 +456,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							"Content-Type": "application/json",
 							"Authorization": `Bearer ${token}`,
 						},
-						body: JSON.stringify({ title: title, body: body, image: image }),
+						body: JSON.stringify({ title: title, body: body, image: image}),
 					});
 					const newPost = await response.json();
 					if (!response.ok) throw new Error("Error creando post");
@@ -471,22 +471,51 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			deletePost: async (id) => {
-				try {
-					console.log(`Eliminando post con iD:${id}`);
-					const response = await fetch(`${process.env.BACKEND_URL}api/posts/${id}`, {
-						method: 'DELETE',
-						headers: {
-							"Authorization": `Bearer ${getStore().token}`,
-						}
-					});
-					if (!response.ok) throw new Error("Error eliminando post");
-					setStore({ posts: getStore().posts.filter((post) => post.id !== id) });
-					console.log("post eliminado");
-				} catch (error) {
-					console.error(error);
-
-				}
-			},
+                try {
+                    console.log(`Eliminando post con iD:${id}`);
+                    const store = getStore();
+                    const token = DOMRectReadOnly.token || localStorage.getItem("token");
+                    if (!token) {
+                        throw new Error("token no disponible");
+                    }
+                    const response = await fetch(`${process.env.BACKEND_URL}api/posts/${id}`, {
+                        method: 'DELETE',
+                        headers: {
+                            "Authorization": `Bearer ${token}`,
+                            "content-Type": "application/json"
+                        }
+                    });
+                    if (!response.ok) throw new Error("Error eliminando post");
+                    setStore({ posts: getStore().posts.filter((post) => post.id !== id) });
+                    console.log("post eliminado");
+                } catch (error) {
+                    console.error(error);
+                }
+            },
+			handleEditPost : async (event, editPostForm, setEditPostForm) => {
+                event.preventDefault();
+                try {
+                    const response = await fetch(`${process.env.BACKEND_URL}api/posts/${editPostForm.id}`, {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${getStore().token}`
+                        },
+                        body: JSON.stringify({
+                            title: editPostForm.title,
+                            description: editPostForm.description,
+                        }),
+                    });
+                    if (!response.ok) throw new Error("Error editando el post");
+                    const updatedPost = await response.json();
+                    setStore({
+                        posts: getStore().posts.map(post => post.id === updatedPost.id ? updatedPost : post),
+                    });
+                    setEditPostForm(null);
+                } catch (error) {
+                    console.error("Error:", error);
+                }
+            },
 			getComment: async () => {
 				try {
 					const response = await fetch(`${process.env.BACKEND_URL}api/comments`);
@@ -566,15 +595,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.error(error);
 				}
 			},
-			uploadImg: async ({ image, title, description }) => {
+			uploadImg: async ({ image, title, body }) => {
 				try {
 					const token = localStorage.getItem("token");
 					if (!token) throw new Error("no hay token en el upload");
 
 					const formData = new FormData();
 					formData.append('file', image);
-					formData.append('username', title)
-					formData.append('description', description)
+					formData.append('title', title)
+					formData.append('body', body)
 
 					const response = await fetch(`${process.env.BACKEND_URL}api/upload`, {
 						method: 'POST',
@@ -586,7 +615,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 					const data = await response.json();
 					if (data.secure_url) {
-						setStore({ img_url: data.secure_url });
+						setStore({ image_url: data.secure_url });
 						return data.secure_url
 					}
 					throw new Error("no se recibio la url de la imagen");

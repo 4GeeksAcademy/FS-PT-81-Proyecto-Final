@@ -12,6 +12,7 @@ export const NewPost = () => {
     const [body, setBody] = useState("");
     const [image, setImage] = useState(null);
     const [loading, setLoading] = useState(false);
+
     useEffect(() => {
         let isMounted = true
         const fetchPosts = async () => {
@@ -27,14 +28,15 @@ export const NewPost = () => {
 
 
     const handleSubmit = async (e) => {
+        
         e.preventDefault();
         setLoading(true);
         try {
             let imageUrl = "";
             if (image) {
-                imageUrl = await actions.uploadImg({image, title, description: body});
+                imageUrl = await actions.uploadImg({image: image, title: title, body: body});
             }
-            await actions.createPost(title, body, imageUrl);
+            await actions.createPost(title, body, image);
 
             await actions.getPosts();
             navigate("/perfil");
@@ -65,7 +67,7 @@ export const NewPost = () => {
                 <input
                     type="file"
                     accept="image/*"
-                    onChange={(e) => setImage(e.target.value)}
+                    onChange={(e) =>{const file = e.target.files[0]; console.log("archivo de imagen", file); setImage(file)}}
                     required
                 />
                 <button className="butonupload" type="submit" disabled={loading}>

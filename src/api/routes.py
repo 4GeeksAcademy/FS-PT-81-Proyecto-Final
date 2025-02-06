@@ -101,7 +101,7 @@ def create_post():
     if not title or not body or not image:
         return jsonify({'message': 'Todos los campos son necesarios'}), 400
     
-    new_post = Posts(title=title, body=body, img=image, user_id=user_id)
+    new_post = Posts(title=title, body=body, image=image, user_id=user_id)
     db.session.add(new_post)
     db.session.commit()
     
@@ -216,16 +216,50 @@ def delete_favourite(id):
 @api.route('/upload', methods=['POST'])
 @jwt_required()
 def upload():
-    user_id = get_jwt_identity()
-    title = request.form.get('title')
-    body = request.form.get('body')
-    file_to_upload = request.files['file']
-    if file_to_upload:
-        upload = cloudinary.uploader.upload(file_to_upload)
-        image_url = upload.get("url")
-    post = Posts (user_id = user_id, title =title, body= body, image= image_url)
-    db.session.add(post)
-    db.session.commit()
-    return jsonify({"message": "Post created successfully", "post": post.serialize()}), 201
+   try:
+       user_id = get_jwt_identity()
+       file_to_upload = request.files.get('file')
+       if not file_to_upload:
+           return jsonify({"error": "No se recibió el archivo"}), 400
+       try:
+           upload_result = cloudinary.uploader.upload(file_to_upload)
+           image_url = upload_result.get("secure_url")
+           if not image_url:
+               return jsonify({"error": "No se pudo obtener la URL de Cloudinary"}), 500
+       except Exception as cloud_error:
+           return jsonify({"error": f"Error al subir a Cloudinary: {str(cloud_error)}"}), 500
+       title = request.form.get('title')
+       body = request.form.get('body')
+       new_post = Posts(
+           user_id=user_id,
+           title=title,
+           body=body,
+           image=image_url  
+       )
+       db.session.add(new_post)
+       db.session.commit()
+       return jsonify({
+           "message": "Post creado exitosamente",
+           "post": new_post.serialize()
+       }), 201
+   except Exception as e:
+       db.session.rollback()
+       print("Error completo:", str(e))
+       import traceback
+       print("Traceback:", traceback.format_exc())
+       return jsonify({"error": str(e)}), 500
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+

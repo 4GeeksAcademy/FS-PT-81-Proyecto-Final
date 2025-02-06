@@ -8,10 +8,18 @@ export const QuienesSomos = () => {
       </h4>
 
       <div className="row align-items-center">
+
+       
       
         <div className="col-lg-9 col-md-8 col-sm-12 text-center text-md-start">
-          <p>
-            ¡Hola, os doy la bienvenida a nuestra página web!  
+          <h6 className="mb-5">Somos 4 estudiantes del bootcamp de fullstack developer que se imparte en la academia 4geeks Academy.
+            En la tormenta de ideas para nuestro proyecto final, había una área que teníamos en común: la pasión por viajar y 
+            explorar mundo, por lo que decidimos crear un lugar donde compartir nuestras experiencias y que sirvan como guía para el resto por 
+            lo que nació: <b className="trip"><span>TripGeeks</span></b>, una página web donde crear y compartir experiencias de una forma divertida.
+            Esperamos que aquí encuentres todo lo que necesitas, nos vemos en el camino.
+          </h6>
+          
+            <p>¡Hola, os doy la bienvenida a nuestra página web!  
             <br />
             Soy <b>Yasmina</b>, una persona apasionada por la tecnología y los retos de la programación. Me encanta explorar nuevas soluciones y aprender constantemente para mejorar mis habilidades. 
             Además, disfruto viajar y descubrir nuevos lugares, especialmente aquellos cerca del mar, donde encuentro inspiración y tranquilidad. 

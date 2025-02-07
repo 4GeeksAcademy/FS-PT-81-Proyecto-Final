@@ -115,6 +115,28 @@ def delete_post(id):
     db.session.commit()
     return jsonify({'message': f'Post {id} deleted'}), 200
 
+@api.route('/api/posts/<int:post_id>', methods=['PUT'])
+@jwt_required()
+def update_post(post_id):
+    user_id = get_jwt_identity()  
+    post = Posts.query.get(post_id)
+    if not post:
+        return jsonify({"error": "Post no encontrado"}), 404
+    if post.user_id != user_id:
+        return jsonify({"error": "No tienes permiso para editar este post"}), 403
+    data = request.json
+    post.title = data.get("title", post.title)
+    post.description = data.get("description", post.description)
+    try:
+        db.session.commit()
+        return jsonify({
+            "message": "Post actualizado correctamente",
+            "post": post.serialize()
+        }), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500
+
 
 # ----------------- COMMENTS ------------------ #
 @api.route('/comments', methods=['GET'])

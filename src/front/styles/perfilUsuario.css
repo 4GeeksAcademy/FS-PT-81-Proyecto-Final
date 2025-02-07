@@ -1,9 +1,44 @@
+
 .perfil-container{
     background-color: #88E8F2;
+    background-image: url(https://imgs.search.brave.com/Fq4TqTiFTQedGfqUtXZEvGyXq_sixJwipnvAofngVQo/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/Zm90b3MtcHJlbWl1/bS92aXN0YS1zdXBl/cmlvci1hY2Nlc29y/aW9zLXZpYWplLXNv/YnJlLWZvbmRvLW5h/cmFuamFfMTY0MTM4/LTg4Ny5qcGc_c2Vt/dD1haXNfaHlicmlk);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    align-content: space-around;
+    flex-direction: column;
 }
+
 .bienvenida{
     text-align: center;
     color: #32CBD9;
+}
+.perfilpost{
+    min-height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #6ec6e9;
+
+}
+.textpublicaciones{
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+.bodypost{
+    margin-top: 2rem;
+    width: 500px;
+    background-color: #88E8F2;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    
 }
 .exploraPerfil{
     text-align: center;
@@ -13,13 +48,14 @@
 }
 .newPost-container{
     text-align: center;
-    max-width: 600px;
     margin: auto;
 }
 .feed{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+
+    max-width: 500px;
+    justify-content: center;
+    align-items: start;
+    gap: 20px;
 
 }
 .post-card{
@@ -30,15 +66,59 @@
     text-align: left;
 
 }
-.post-card img{
-    width: 50vh;
-    height: auto;
-    border-radius: 5px;
+.bodypost img{
+    width: 100%;
+    max-height: 500px;
     margin-top: 10px;
 }
 .titulopost{
-    background-color: white;
+    font-size: 18px;
+    font-weight: bold;
+    color:#333;
+    margin-bottom: 5px;
 }
 .descripcion-post{
-    background-color: white;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+.buttons{
+    display: flex;
+    gap: 10px;
+}
+button{
+    background-color: none;
+    border: none;
+    font-family: 30px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.generalpost{
+    background-color: #88E8F2 ;
+}
+
+.button:hover{
+   transform: scale(1.2);
+}
+.button-edit{
+    color:black;
+    background-color: #32CBD9;
+
+}
+.button-delete{
+    color:#333;
+    background-color: #32CBD9;
+}
+.button-favorite{
+    margin-left: 300px;
+    color:gray;
+    background-color: #32CBD9;
+}
+.favorite-active{
+    color:red;
+    background-color: #32CBD9;
+}
+.post-actions{
+    display: flex;
+    background-color: #32CBD9;
 }

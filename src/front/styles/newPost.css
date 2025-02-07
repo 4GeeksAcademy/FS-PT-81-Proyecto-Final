@@ -1,39 +1,61 @@
-.newpost-container{
-    width: 50%;
-    margin: auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-h2 {
-    color:white;
-}
-form {
+.newPost-container {
+    background-image: url(https://imgs.search.brave.com/Fq4TqTiFTQedGfqUtXZEvGyXq_sixJwipnvAofngVQo/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/Zm90b3MtcHJlbWl1/bS92aXN0YS1zdXBl/cmlvci1hY2Nlc29y/aW9zLXZpYWplLXNv/YnJlLWZvbmRvLW5h/cmFuamFfMTY0MTM4/LTg4Ny5qcGc_c2Vt/dD1haXNfaHlicmlk);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
     display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    align-content: space-around;
     flex-direction: column;
 }
-label {
-    margin: 10px 0 5px;
-    font-weight: bold; 
+
+.historiaViaje {
+    color: #ecf0f1;
+    margin-bottom: 15px;
 }
-input, textarea{
+
+.newpostform {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.newText {
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.newinp,
+.newTextar {
+    font-size: 16px;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
+    border: 2px solid #E3A008;
     border-radius: 5px;
     width: 100%;
+    outline: none;
 }
-button {
-    background-color: #007bff;
+
+.newinp:focus,
+.newTextar :focus {
+    background-color: #0078AA;
+}
+
+.butonupload {
+    width: 100%;
+    background-color: #0078AA;
     color: white;
     padding: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.3 ease;
+    font-size: 16px;
 }
-button:hover{
-    background-color: #dfba17;
+
+.butonupload :hover {
+    background-color: #005F73;
 }

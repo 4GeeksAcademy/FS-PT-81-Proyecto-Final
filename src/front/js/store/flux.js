@@ -456,7 +456,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							"Content-Type": "application/json",
 							"Authorization": `Bearer ${token}`,
 						},
-						body: JSON.stringify({ title: title, body: body, image: image}),
+						body: JSON.stringify({ title: title, body: body, image: image }),
 					});
 					const newPost = await response.json();
 					if (!response.ok) throw new Error("Error creando post");
@@ -471,35 +471,41 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			deletePost: async (id) => {
-                try {
-                    console.log(`Eliminando post con iD:${id}`);
-                    const store = getStore();
-                    const token = DOMRectReadOnly.token || localStorage.getItem("token");
-                    if (!token) {
-                        throw new Error("token no disponible");
-                    }
-                    const response = await fetch(`${process.env.BACKEND_URL}api/posts/${id}`, {
-                        method: 'DELETE',
-                        headers: {
-                            "Authorization": `Bearer ${token}`,
-                            "content-Type": "application/json"
-                        }
-                    });
-                    if (!response.ok) throw new Error("Error eliminando post");
-                    setStore({ posts: getStore().posts.filter((post) => post.id !== id) });
-                    console.log("post eliminado");
-                } catch (error) {
-                    console.error(error);
-                }
-            },
-			handleEditPost : async (event, editPostForm, setEditPostForm) => {
+				try {
+					console.log(`Eliminando post con iD:${id}`);
+					const store = getStore();
+					const token = localStorage.getItem("token");
+					if (!token) {
+						throw new Error("token no disponible");
+					}
+					const response = await fetch(`${process.env.BACKEND_URL}api/posts/${id}`, {
+						method: 'DELETE',
+						headers: {
+							"Authorization": `Bearer ${token}`,
+							"content-Type": "application/json"
+						}
+					});
+					if (!response.ok) throw new Error("Error eliminando post");
+					setStore({ posts: getStore().posts.filter((post) => post.id !== id) });
+					console.log("post eliminado");
+				} catch (error) {
+					console.error(error);
+				}
+			},
+			handleEditPost: async (event, editPostForm, setEditPostForm) => {
                 event.preventDefault();
+                if (!editPostForm || !editPostForm.id) {
+                    console.error("Error: ID del post no proporcionado.");
+                    return;
+                }
                 try {
-                    const response = await fetch(`${process.env.BACKEND_URL}api/posts/${editPostForm.id}`, {
+                    const token = localStorage.getItem("token");
+                    if (!token) throw new Error("Token no disponible");
+                    const response = await fetch(`${process.env.BACKEND_URL}/api/posts/${editPostForm.id}`, {
                         method: "PUT",
                         headers: {
                             "Content-Type": "application/json",
-                            "Authorization": `Bearer ${getStore().token}`
+                            Authorization: `Bearer ${token}`,
                         },
                         body: JSON.stringify({
                             title: editPostForm.title,
@@ -509,11 +515,14 @@ const getState = ({ getStore, getActions, setStore }) => {
                     if (!response.ok) throw new Error("Error editando el post");
                     const updatedPost = await response.json();
                     setStore({
-                        posts: getStore().posts.map(post => post.id === updatedPost.id ? updatedPost : post),
+                        posts: getStore().posts.map((post) =>
+                            post.id === updatedPost.id ? updatedPost : post
+                        ),
                     });
+                    console.log("Post editado correctamente:", updatedPost);
                     setEditPostForm(null);
                 } catch (error) {
-                    console.error("Error:", error);
+                    console.error("Error al editar post:", error);
                 }
             },
 			getComment: async () => {
@@ -615,7 +624,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 					const data = await response.json();
 					if (data.secure_url) {
-						setStore({ image_url: data.secure_url });
+						setStore({ img_url: data.secure_url });
 						return data.secure_url
 					}
 					throw new Error("no se recibio la url de la imagen");

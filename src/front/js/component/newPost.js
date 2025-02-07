@@ -52,19 +52,19 @@ export const NewPost = () => {
     return (
         <div className="newPost-container">
             <h2 className="HistoriaViaje">Crea tu Histora de Viaje</h2>
-            <form onSubmit={handleSubmit}>
-                <label>Título:</label>
-                <input type="text"
+            <form className="newpostform" onSubmit={handleSubmit}>
+                <label className="newText">Título:</label>
+                <input  className="newinp" type="text"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     required
                 />
-                <label >Descripción:</label>
-                <textarea value={body} onChange={(e) => setBody(e.target.value)}
+                <label  className="newText" >Descripción:</label>
+                <textarea  className="newTextar"value={body} onChange={(e) => setBody(e.target.value)}
                     required
                 />
-                <label >imagen:</label>
-                <input
+                <label  className="newText">imagen:</label>
+                <input className="newinp"
                     type="file"
                     accept="image/*"
                     onChange={(e) =>{const file = e.target.files[0]; console.log("archivo de imagen", file); setImage(file)}}

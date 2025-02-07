@@ -159,7 +159,7 @@ def delete_favourite(id):
     return jsonify({'message': f'Favourite with id={id} deleted'}), 200
 #--------------------RESTABLECIMIENTO-------------#
 #random password generator
-def password_generator():
+#def password_generator():
     #list of characters
     chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUV1234567890!@#_"
     #variable to store the password
@@ -168,8 +168,9 @@ def password_generator():
     for c in range(8):
         password += random.choice(chars)
     return password
-@api.route('/reset_password', methods=['POST'])
-def reset_password():
+
+#@api.route('/reset_password', methods=['POST'])
+#def reset_password():
     data = request.get_json()
     email = data.get('email')
     user = Users.query.filter_by(email=email).first()

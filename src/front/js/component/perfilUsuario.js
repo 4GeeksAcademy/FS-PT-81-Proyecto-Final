@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
-import { FaHeart, FaPencilAlt, FaTrash } from "react-icons/fa";
+
 import "../../styles/perfilUsuario.css";
 
 
